@@ -204,25 +204,10 @@ document.getElementById("requestForm").addEventListener("submit", async function
 e.preventDefault();
 
 const form = e.target;
+const formData = new FormData(form);
+const data = Object.fromEntries(formData.entries());
 
-const data = {
-customer_name: form.elements["customer_name"].value,
-phone: form.elements["phone"].value,
-email: form.elements["email"].value,
-contact_method: form.elements["contact_method"].value,
-vehicle_type: form.elements["vehicle_type"].value,
-maker: form.elements["maker"].value,
-model: form.elements["model"].value,
-year: form.elements["year"].value,
-vin_plate: form.elements["vin_plate"].value,
-running_condition: form.elements["running_condition"].value,
-problem_type: form.elements["problem_type"].value,
-problem_detail: form.elements["problem_detail"].value,
-current_address: form.elements["current_address"].value,
-map_link: form.elements["map_link"].value,
-destination_port: form.elements["destination_port"].value,
-created_at: new Date().toISOString()
-};
+data.created_at = new Date().toISOString();
 
 try{
 await fetch("https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate",{
