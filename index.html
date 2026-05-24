@@ -509,10 +509,53 @@ Payment is accepted by card only.
 </footer>
 
 <script>
-document.getElementById("requestForm").addEventListener("submit",function(e){
+
+document.getElementById("requestForm").addEventListener("submit", async function(e){
+
 e.preventDefault();
-alert("送信テスト成功です");
+
+const form = e.target;
+
+const data = {
+
+customer_name: form.querySelectorAll("input")[0].value,
+phone: form.querySelectorAll("input")[1].value,
+email: form.querySelectorAll("input")[2].value,
+maker: form.querySelectorAll("input")[3].value,
+model: form.querySelectorAll("input")[4].value,
+year: form.querySelectorAll("input")[5].value,
+vin_plate: form.querySelectorAll("input")[6].value,
+problem_detail: form.querySelector("textarea").value,
+created_at: new Date().toISOString()
+
+};
+
+try {
+
+await fetch("https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate", {
+
+method: "POST",
+
+headers: {
+"Content-Type":"application/json"
+},
+
+body: JSON.stringify(data)
+
 });
+
+alert("送信ありがとうございました。スタッフよりご連絡いたします。");
+
+form.reset();
+
+} catch(error){
+
+alert("送信エラーです。");
+
+}
+
+});
+
 </script>
 
 </body>
