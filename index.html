@@ -1,171 +1,142 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sakura Recovery & Repair Service</title>
-<meta name="description" content="沖縄の車両回収・修理・港配送サポート。車・バン・トラック・ダンプ・バス対応。カード決済のみ。" />
-
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans JP",sans-serif;background:#f4f4f4;color:#111}
+body{margin:0;font-family:Arial,"Noto Sans JP",sans-serif;background:#f5f5f5;color:#111}
 a{text-decoration:none}
-.hero{
-min-height:100vh;padding:28px;text-align:center;color:white;
-background:
-linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.70)),
-url("https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1800&q=80") center/cover;
-position:relative;overflow:hidden
-}
-.hero:before{
-content:"";position:absolute;inset:0;opacity:.22;pointer-events:none;
-background:
-url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=700&q=80") 5% 18%/25% no-repeat,
-url("https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=700&q=80") 92% 20%/25% no-repeat,
-url("https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=700&q=80") 7% 85%/25% no-repeat,
-url("https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=700&q=80") 94% 82%/25% no-repeat
-}
-.nav{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.logo{font-size:25px;font-weight:900;color:#ffd000;text-shadow:0 2px 12px #000}
-.btn{display:inline-block;background:#ffd000;color:#111;padding:15px 24px;border-radius:14px;font-weight:900}
-.btn.red{background:#e63946;color:white}
-.heroBox{position:relative;z-index:2;max-width:1050px;margin:105px auto}
-.badge{display:inline-block;background:#e63946;padding:11px 18px;border-radius:999px;font-weight:900}
-h1{font-size:52px;line-height:1.2;color:#ffd000;text-shadow:0 0 18px rgba(255,208,0,.5)}
-h2{text-align:center;color:#222;font-size:34px}
+.hero{min-height:100vh;position:relative;overflow:hidden;color:#fff;padding:28px;text-align:center}
+.bg-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:33.3%;z-index:0}
+.bg-grid img{width:100%;height:100%;object-fit:cover;filter:brightness(.45);animation:zoom 14s infinite alternate}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#000d,#0007,#000d);z-index:1}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+.nav,.heroBox{position:relative;z-index:2}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:26px;font-weight:900;color:#ffd000}
+.btn{background:#ffd000;color:#111;padding:15px 25px;border-radius:14px;font-weight:900;display:inline-block}
+.red{background:#e63946;color:#fff}
+.heroBox{max-width:1050px;margin:115px auto}
+.badge{background:#e63946;padding:12px 20px;border-radius:999px;font-weight:900}
+h1{font-size:54px;color:#ffd000;text-shadow:0 0 20px #000}
+h2{text-align:center;font-size:36px;color:#111}
 p{font-size:18px;line-height:1.8}
-.section{padding:70px 22px}
-.dark{background:#111;color:white}.dark h2{color:#ffd000}
+.section{padding:70px 22px}.dark{background:#111;color:#fff}.dark h2{color:#ffd000}
 .grid{max-width:1150px;margin:30px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:white;border-radius:20px;padding:25px;border:1px solid #ddd;box-shadow:0 12px 30px rgba(0,0,0,.08)}
-.dark .card{background:#1b1b1b;border-color:#333}
-.card h3{color:#e63946;font-size:23px}
-.form{max-width:950px;margin:auto;background:white;padding:32px;border-radius:24px;box-shadow:0 15px 40px rgba(0,0,0,.12)}
-.form h3{color:#e63946;font-size:25px}
-label{font-weight:900;color:#222}
+.card{background:#fff;border-radius:22px;padding:25px;box-shadow:0 15px 35px #0002}
+.dark .card{background:#1b1b1b;border:1px solid #333}.card h3{color:#e63946}
+.slider{max-width:1100px;margin:auto;overflow:hidden;border-radius:26px;box-shadow:0 20px 45px #0004}
+.slides{display:flex;width:max-content;animation:slide 42s linear infinite}
+.slides img{width:360px;height:260px;object-fit:cover}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.form{max-width:950px;margin:auto;background:white;padding:32px;border-radius:24px;box-shadow:0 15px 40px #0002}
+.form h3{color:#e63946}label{font-weight:900}
 input,select,textarea{width:100%;padding:15px;margin:8px 0 18px;border-radius:12px;border:1px solid #ccc;font-size:16px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-button{width:100%;border:0;background:#ffd000;color:#111;padding:18px;border-radius:14px;font-size:20px;font-weight:900;cursor:pointer}
-.notice{background:#fff8d6;border:2px solid #ffd000;border-radius:18px;padding:20px;margin:20px 0}
-.contact{text-align:center;max-width:900px;margin:auto}
-.phone{font-size:34px;font-weight:900;color:#e63946}
-.fixed{position:fixed;right:18px;bottom:18px;z-index:999}
-.fixed a{display:block;background:#19c463;color:white;padding:16px 24px;border-radius:999px;font-weight:900}
+button{width:100%;border:0;background:#ffd000;padding:18px;border-radius:14px;font-size:20px;font-weight:900}
+.notice{background:#fff8d6;border:2px solid #ffd000;border-radius:18px;padding:20px}
+.contact{text-align:center}.phone{font-size:34px;font-weight:900;color:#e63946}
+.fixed{position:fixed;right:18px;bottom:18px;z-index:999}.fixed a{background:#18c964;color:white;padding:16px 24px;border-radius:999px;font-weight:900;display:block}
 footer{text-align:center;background:#050505;color:#aaa;padding:28px}
-@media(max-width:700px){h1{font-size:34px}.grid2{grid-template-columns:1fr}.nav{flex-direction:column}.heroBox{margin:65px auto}.phone{font-size:26px}}
+@media(max-width:700px){h1{font-size:34px}.grid2{grid-template-columns:1fr}.nav{flex-direction:column}.bg-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
-
 <body>
 
 <section class="hero">
-  <div class="nav">
-    <div class="logo">🌸 Sakura Recovery & Repair Service</div>
-    <a class="btn red" href="tel:07084455348">緊急電話 / Call Now</a>
-  </div>
+<div class="bg-grid">
+<img src="recovery-1.png"><img src="recovery-2.png"><img src="recovery-3.png"><img src="recovery-4.png">
+<img src="recovery-5.png"><img src="recovery-6.png"><img src="recovery-7.png"><img src="recovery-8.png">
+<img src="recovery-9.png"><img src="recovery-10.png"><img src="recovery-11.png"><img src="recovery-12.png">
+</div>
 
-  <div class="heroBox">
-    <span class="badge">Okinawa Main Island Support</span>
-    <h1>沖縄で自動車トラブルに困ったら、すぐ Sakura Recovery & Repair Service へ</h1>
-    <p>車・バン・トラック・ダンプ・バスの故障、修理、移動、港搬送まで迅速・丁寧にサポートいたします。</p>
-    <p>Emergency vehicle recovery, repair and port delivery support in Okinawa.</p>
-    <a class="btn" href="tel:07084455348">📞 070-8445-5348</a>
-  </div>
+<div class="nav">
+<div class="logo">🌸 Sakura Recovery & Repair Service</div>
+<a class="btn red" href="tel:07084455348">緊急電話 / Call Now</a>
+</div>
+
+<div class="heroBox">
+<span class="badge">Okinawa Main Island Support</span>
+<h1>沖縄で自動車トラブルに困ったら、すぐお電話ください</h1>
+<p>車・バン・トラック・ダンプ・バスの故障、修理、移動、港搬送まで、誠実・迅速・丁寧にサポートいたします。</p>
+<p>Emergency vehicle recovery, repair and port delivery support in Okinawa.</p>
+<a class="btn" href="tel:07084455348">📞 070-8445-5348</a>
+</div>
 </section>
 
 <section class="section dark">
-  <h2>対応サービス / Services</h2>
-  <div class="grid">
-    <div class="card"><h3>🚛 Vehicle Recovery</h3><p>故障車・不動車・事故車の回収、移動、現場対応。</p></div>
-    <div class="card"><h3>🔧 Emergency Repair</h3><p>エンジン始動不可、バッテリー、オイル漏れ、ブレーキ、タイヤ問題。</p></div>
-    <div class="card"><h3>🚢 Port Delivery</h3><p>船積み前の修理、港までの搬送、輸送準備をサポート。</p></div>
-    <div class="card"><h3>🚌 Heavy Vehicle</h3><p>トラック、ダンプ、バス、大型車両にも対応。</p></div>
-  </div>
+<h2>対応サービス / Services</h2>
+<div class="grid">
+<div class="card"><h3>🚛 Vehicle Recovery</h3><p>故障車・不動車・事故車の回収、移動、現場対応。</p></div>
+<div class="card"><h3>🔧 Emergency Repair</h3><p>エンジン始動不可、バッテリー、オイル漏れ、ブレーキ、タイヤ問題。</p></div>
+<div class="card"><h3>🚢 Port Delivery</h3><p>船積み前の修理、港までの搬送、輸送準備をサポート。</p></div>
+<div class="card"><h3>🚌 Heavy Vehicle</h3><p>トラック、ダンプ、バス、大型車両にも対応。</p></div>
+</div>
 </section>
 
 <section class="section">
-  <h2>お見積り依頼フォーム / Estimate Request Form</h2>
+<h2>Real Recovery Gallery</h2>
+<div class="slider">
+<div class="slides">
+<img src="recovery-1.png"><img src="recovery-2.png"><img src="recovery-3.png"><img src="recovery-4.png"><img src="recovery-5.png"><img src="recovery-6.png">
+<img src="recovery-7.png"><img src="recovery-8.png"><img src="recovery-9.png"><img src="recovery-10.png"><img src="recovery-11.png"><img src="recovery-12.png">
+<img src="recovery-1.png"><img src="recovery-2.png"><img src="recovery-3.png"><img src="recovery-4.png"><img src="recovery-5.png"><img src="recovery-6.png">
+</div>
+</div>
+</section>
 
-  <form class="form" id="requestForm">
-    <h3>1. お客様情報 / Customer Information</h3>
-    <div class="grid2">
-      <div><label>お名前 / Full Name</label><input name="customer_name" required></div>
-      <div><label>電話番号 / Phone Number</label><input name="phone" required></div>
-    </div>
-    <div class="grid2">
-      <div><label>メール / Email</label><input name="email" type="email"></div>
-      <div><label>希望連絡方法 / Preferred Contact</label>
-        <select name="contact_method"><option>Phone</option><option>WhatsApp</option><option>LINE</option><option>Email</option></select>
-      </div>
-    </div>
+<section class="section">
+<h2>お見積り依頼フォーム / Estimate Request Form</h2>
+<form class="form" id="requestForm">
+<h3>1. お客様情報 / Customer Information</h3>
+<div class="grid2"><div><label>お名前 / Full Name</label><input required></div><div><label>電話番号 / Phone</label><input required></div></div>
+<div class="grid2"><div><label>メール / Email</label><input type="email"></div><div><label>希望連絡方法</label><select><option>Phone</option><option>WhatsApp</option><option>LINE</option><option>Email</option></select></div></div>
 
-    <h3>2. 車両情報 / Vehicle Details</h3>
-    <div class="grid2">
-      <div><label>車両タイプ / Vehicle Type</label>
-        <select name="vehicle_type"><option>Car</option><option>Van</option><option>Small Truck</option><option>Big Truck</option><option>Dump</option><option>Bus</option><option>Other</option></select>
-      </div>
-      <div><label>メーカー / Maker</label><input name="maker" placeholder="Toyota, Isuzu, Hino..."></div>
-    </div>
-    <div class="grid2">
-      <div><label>モデル / Model</label><input name="model"></div>
-      <div><label>年式 / Year</label><input name="year"></div>
-    </div>
-    <label>車台番号またはナンバー / VIN or Plate Number</label><input name="vin_plate">
-    <label>車両状態 / Running Condition</label>
-    <select name="running_condition"><option>走行可能 / Running</option><option>エンジン始動不可 / Not starting</option><option>移動不可 / Cannot move</option><option>事故・破損 / Damaged</option></select>
+<h3>2. 車両情報 / Vehicle Details</h3>
+<div class="grid2"><div><label>車両タイプ</label><select><option>Car</option><option>Van</option><option>Truck</option><option>Dump</option><option>Bus</option><option>Other</option></select></div><div><label>メーカー</label><input></div></div>
+<div class="grid2"><div><label>モデル</label><input></div><div><label>年式</label><input></div></div>
+<label>車台番号またはナンバー</label><input>
+<label>車両状態</label><select><option>走行可能</option><option>エンジン始動不可</option><option>移動不可</option><option>事故・破損</option></select>
 
-    <h3>3. トラブル内容 / Problem Details</h3>
-    <label>問題を選択してください / Select Problem</label>
-    <select name="problem_type">
-      <option>エンジンがかからない / Engine not starting</option>
-      <option>バッテリー上がり / Battery dead</option>
-      <option>タイヤパンク・破裂 / Tire problem</option>
-      <option>オイル漏れ / Oil leaking</option>
-      <option>ブレーキ不良 / Brake problem</option>
-      <option>港まで搬送希望 / Port delivery</option>
-      <option>その他 / Other</option>
-    </select>
-    <label>詳しい内容 / Detailed Message</label>
-    <textarea name="problem_detail" rows="5"></textarea>
+<h3>3. トラブル内容 / Problem</h3>
+<select><option>エンジンがかからない</option><option>バッテリー上がり</option><option>タイヤ問題</option><option>オイル漏れ</option><option>ブレーキ不良</option><option>港まで搬送希望</option><option>その他</option></select>
+<textarea rows="5" placeholder="詳しい状況をご記入ください"></textarea>
 
-    <h3>4. 現在地・搬送先 / Location</h3>
-    <label>現在の住所 / Current Vehicle Address</label>
-    <textarea name="current_address" rows="3" required></textarea>
-    <label>Google Map Link</label><input name="map_link">
-    <label>希望搬送先・港 / Destination Port</label><input name="destination_port" placeholder="Naha Port, Nakagusuku Port...">
+<h3>4. 現在地・搬送先 / Location</h3>
+<label>現在の住所</label><textarea rows="3" required></textarea>
+<label>Google Map Link</label><input>
+<label>希望搬送先・港</label><input placeholder="Naha Port, Nakagusuku Port...">
 
-    <h3>5. 写真 / Photos</h3>
-    <label>車両写真 / Vehicle Photos</label><input type="file" name="vehicle_photos" multiple>
+<label>車両写真 / Vehicle Photos</label><input type="file" multiple>
 
-    <div class="notice">
-      <h3>💳 お支払いについて / Payment Policy</h3>
-      <p>お支払いはカード決済のみ対応しております。現金でのお支払いは受け付けておりません。</p>
-      <p>Payment is accepted by card only. After estimate confirmation, we will send a secure payment link.</p>
-    </div>
+<div class="notice">
+<h3>💳 お支払いについて / Payment Policy</h3>
+<p>お支払いはカード決済のみ対応しております。現金でのお支払いは受け付けておりません。</p>
+<p>Payment is accepted by card only. After estimate confirmation, we will send a secure payment link.</p>
+</div>
 
-    <button type="submit">見積りを依頼する / Send Request</button>
-  </form>
+<button type="submit">見積りを依頼する / Send Request</button>
+</form>
 </section>
 
 <section class="section dark">
-  <h2>所在地 / Contact</h2>
-  <div class="contact">
-    <p class="phone">📞 070-8445-5348</p>
-    <p>〒901-2416<br>沖縄県中頭郡中城村和宇慶620−1</p>
-  </div>
+<h2>所在地 / Contact</h2>
+<div class="contact">
+<p class="phone">📞 070-8445-5348</p>
+<p>〒901-2416<br>沖縄県中頭郡中城村和宇慶620−1</p>
+</div>
 </section>
 
 <div class="fixed"><a href="tel:07084455348">📞 Call</a></div>
 
-<footer>
-© 2026 Sakura Recovery & Repair Service<br>
-Okinawa Vehicle Recovery, Repair & Port Delivery Support
-</footer>
+<footer>© 2026 Sakura Recovery & Repair Service</footer>
 
 <script>
-document.getElementById("requestForm").addEventListener("submit",function(e){
+document.getElementById("requestForm").addEventListener("submit",e=>{
 e.preventDefault();
-alert("送信テスト成功です。次はn8n Webhookに接続します。\\nTest success. Next step: connect this form to n8n webhook.");
+alert("送信テスト成功です。次はn8n Webhookに接続します。");
 });
 </script>
 
