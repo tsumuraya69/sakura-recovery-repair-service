@@ -4,32 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sakura Recovery & Repair Service</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{font-family:Arial,"Noto Sans JP",sans-serif;background:#111;color:white;overflow-x:hidden}
-
-.lang-wrap{
-position:fixed;top:14px;left:50%;transform:translateX(-50%);
-z-index:99999;background:linear-gradient(135deg,#111,#3b2f00,#111);
-border:1px solid #ffd000;border-radius:999px;padding:8px 14px;
-box-shadow:0 8px 30px #0009;display:flex;align-items:center;gap:10px
-}
-.lang-wrap span{color:#ffd000;font-weight:bold;font-size:14px;white-space:nowrap}
-.lang-select{
-background:#fff;color:#111;border:2px solid #ffd000;
-padding:9px 14px;border-radius:999px;font-weight:bold;font-size:15px;
-outline:none;min-width:220px
-}
-
-.hero{
-min-height:100vh;padding:110px 30px 40px;text-align:center;
-display:flex;flex-direction:column;justify-content:center;align-items:center;
-position:relative;background-size:cover;background-position:center;
-animation:bgslide 40s infinite
-}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.68))}
+.hero{min-height:100vh;padding:30px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;background-size:cover;background-position:center;animation:bgslide 40s infinite}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.6))}
 .hero>*{position:relative;z-index:2}
 @keyframes bgslide{
 0%{background-image:url("recovery-10.webp")}
@@ -46,7 +25,7 @@ animation:bgslide 40s infinite
 h1{font-size:52px;line-height:1.3;color:#ffd000;margin-bottom:20px;max-width:1100px;text-shadow:0 0 12px #000}
 .hero p{font-size:21px;line-height:1.8;max-width:950px;margin-bottom:12px;text-shadow:0 0 10px #000}
 .btn{display:inline-block;background:#e63946;padding:18px 35px;border-radius:12px;color:white;font-size:20px;font-weight:bold;text-decoration:none;margin:10px}
-
+.lang-select{position:fixed;top:15px;right:15px;z-index:99999;background:#ffd000;color:#111;border:none;padding:10px;border-radius:8px;font-weight:bold}
 .section{padding:70px 20px}
 .dark{background:#0a0a0a}
 .section h2{text-align:center;font-size:40px;color:#ffd000;margin-bottom:45px}
@@ -54,11 +33,9 @@ h1{font-size:52px;line-height:1.3;color:#ffd000;margin-bottom:20px;max-width:110
 .card{background:#1b1b1b;padding:30px;border-radius:18px;border:1px solid #333}
 .card h3{font-size:24px;margin-bottom:15px;color:#e63946}
 .card p{line-height:1.8;font-size:17px}
-
 .form{max-width:950px;margin:auto;background:#1a1a1a;padding:35px;border-radius:20px;border:1px solid #333}
 .form h3{font-size:28px;margin-bottom:25px;color:#ffd000}
 label{display:block;margin-bottom:10px;font-weight:bold;color:#ffd000}
-.req{color:#ff4d4d}
 input,select,textarea{width:100%;padding:15px;margin-bottom:20px;border-radius:10px;border:none;font-size:16px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 button{width:100%;padding:18px;border:none;background:#ffd000;color:#111;font-size:20px;font-weight:bold;border-radius:12px;cursor:pointer}
@@ -66,30 +43,8 @@ button{width:100%;padding:18px;border:none;background:#ffd000;color:#111;font-si
 .contact{text-align:center}
 .phone{font-size:38px;font-weight:bold;color:#e63946;margin-bottom:15px}
 footer{background:#000;text-align:center;padding:30px;color:#aaa}
-
 .fixed{position:fixed;right:18px;bottom:18px;z-index:999}
 .fixed a{display:block;background:#19c463;color:white;padding:16px 24px;border-radius:999px;font-weight:bold;text-decoration:none}
-
-/* Luxury popup */
-.popup-bg{
-position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100000;
-display:none;align-items:center;justify-content:center;padding:20px
-}
-.popup-card{
-max-width:460px;width:100%;background:linear-gradient(145deg,#fff,#fff8d8,#ffe7f0);
-color:#111;border-radius:26px;padding:34px 26px;text-align:center;
-border:3px solid #ffd000;box-shadow:0 25px 80px #000;
-animation:pop .35s ease
-}
-@keyframes pop{from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
-.popup-icon{font-size:54px;margin-bottom:12px}
-.popup-card h3{font-size:28px;color:#b8860b;margin-bottom:12px}
-.popup-card p{font-size:17px;line-height:1.7;color:#333}
-.popup-ok{
-margin-top:24px;display:inline-block;background:linear-gradient(135deg,#ffd000,#ff7a00,#e63946);
-color:white;padding:14px 34px;border-radius:999px;font-weight:bold;cursor:pointer;
-box-shadow:0 8px 20px #0004
-}
 
 /* AI CHAT */
 .ai-btn{position:fixed;left:18px;bottom:18px;z-index:99999;background:#ffd000;color:#111;padding:15px 22px;border-radius:999px;font-weight:bold;cursor:pointer;box-shadow:0 8px 25px #0007}
@@ -106,9 +61,6 @@ box-shadow:0 8px 20px #0004
 .lang-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 
 @media(max-width:700px){
-.lang-wrap{top:8px;width:94%;justify-content:center;border-radius:16px}
-.lang-wrap span{font-size:12px}
-.lang-select{min-width:170px;font-size:14px}
 h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.section h2{font-size:30px}.phone{font-size:28px}
 }
 </style>
@@ -116,20 +68,17 @@ h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 
 <body>
 
-<div class="lang-wrap">
-<span>🌐 Language</span>
 <select class="lang-select" id="siteLang" onchange="changeLang(this.value)">
-<option value="ja">日本語 Japanese</option>
+<option value="ja">日本語</option>
 <option value="en">English</option>
-<option value="zh">中文 Chinese</option>
-<option value="es">Español Spanish</option>
-<option value="ru">Русский Russian</option>
-<option value="vi">Tiếng Việt Vietnamese</option>
-<option value="ko">한국어 Korean</option>
-<option value="ar">العربية Arabic</option>
+<option value="zh">中文</option>
+<option value="es">Español</option>
+<option value="ru">Русский</option>
+<option value="vi">Tiếng Việt</option>
+<option value="ko">한국어</option>
+<option value="ar">العربية</option>
 <option value="ur">Roman Urdu</option>
 </select>
-</div>
 
 <section class="hero">
 <div class="logo">🌸 Sakura Recovery & Repair Service</div>
@@ -159,18 +108,9 @@ h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 <h3 data-t="customerInfo"></h3>
 
 <div class="grid2">
-<div>
-<label><span data-t="name"></span> <span class="req">*</span></label>
-<input type="text" name="customer_name" required>
+<div><label data-t="name"></label><input type="text" name="customer_name" required></div>
+<div><label data-t="phone"></label><input type="text" name="phone" required></div>
 </div>
-<div>
-<label><span data-t="phone"></span> <span class="req">*</span></label>
-<input type="tel" name="phone" required>
-</div>
-</div>
-
-<label><span data-t="fullAddress"></span> <span class="req">*</span></label>
-<textarea name="customer_full_address" rows="3" required></textarea>
 
 <div class="grid2">
 <div><label data-t="email"></label><input type="email" name="email"></div>
@@ -191,14 +131,11 @@ h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 <option>Car</option><option>Van</option><option>Truck</option><option>Dump</option><option>Bus</option><option>Other</option>
 </select>
 </div>
-<div>
-<label><span data-t="vehicleName"></span> <span class="req">*</span></label>
-<input type="text" name="vehicle_name" required>
-</div>
+<div><label data-t="maker"></label><input type="text" name="maker"></div>
 </div>
 
 <div class="grid2">
-<div><label data-t="maker"></label><input type="text" name="maker"></div>
+<div><label data-t="model"></label><input type="text" name="model"></div>
 <div><label data-t="year"></label><input type="text" name="year"></div>
 </div>
 
@@ -207,20 +144,21 @@ h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 
 <label data-t="condition"></label>
 <select name="running_condition">
-<option>Running</option><option>Not starting</option><option>Cannot move</option><option>Damaged</option>
+<option>Running</option>
+<option>Not starting</option>
+<option>Cannot move</option>
+<option>Damaged</option>
 </select>
 
 <h3 data-t="problemInfo"></h3>
 
-<label><span data-t="vehicleProblem"></span> <span class="req">*</span></label>
-<select name="vehicle_problem" required>
-<option value="">Select problem</option>
+<label data-t="problemType"></label>
+<select name="problem_type">
 <option>Engine not starting</option>
 <option>Battery dead</option>
 <option>Tire problem</option>
 <option>Oil leaking</option>
 <option>Brake problem</option>
-<option>Accident / Damaged</option>
 <option>Port delivery</option>
 <option>Other</option>
 </select>
@@ -230,8 +168,8 @@ h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 
 <h3 data-t="locationInfo"></h3>
 
-<label><span data-t="vehicleCurrentLocation"></span> <span class="req">*</span></label>
-<textarea name="vehicle_current_location" rows="3" required></textarea>
+<label data-t="currentAddress"></label>
+<textarea name="current_address" rows="3"></textarea>
 
 <label>Google Map Link</label>
 <input type="text" name="map_link">
@@ -258,7 +196,10 @@ h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 </div>
 </section>
 
-<div class="fixed"><a href="tel:07084455348">📞 Call</a></div>
+<div class="fixed">
+<a href="tel:07084455348">📞 Call</a>
+</div>
+
 <footer>© 2026 Sakura Recovery & Repair Service</footer>
 
 <div class="ai-btn" onclick="toggleAI()">💬 AI</div>
@@ -272,63 +213,189 @@ h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 </div>
 </div>
 
-<div class="popup-bg" id="successPopup">
-<div class="popup-card">
-<div class="popup-icon">🌸✅</div>
-<h3 id="popupTitle">送信完了</h3>
-<p id="popupMsg">お問い合わせありがとうございます。スタッフよりご連絡いたします。</p>
-<div class="popup-ok" onclick="closePopup()">OK</div>
-</div>
-</div>
-
 <script>
 const TEXT={
 ja:{
 heroTitle:"沖縄で自動車トラブルに困ったら、すぐ Sakura Recovery & Repair Service へ",
 heroText1:"車・バン・トラック・ダンプ・バスの故障、修理、移動、港搬送まで迅速にサポートいたします。",
 heroText2:"沖縄の車両回収・修理・港搬送サポート。",
-hoursTitle:"営業時間:",hours:"月曜日〜土曜日 9:00 AM〜6:00 PM",
+hoursTitle:"営業時間:",
+hours:"月曜日〜土曜日 9:00 AM〜6:00 PM",
 trust:"お客様の大切なお車のトラブル時に、私たちがお役に立てれば幸いです。",
-estimateBtn:"見積り依頼",servicesTitle:"対応サービス",
+estimateBtn:"見積り依頼",
+servicesTitle:"対応サービス",
 s1:"🚛 車両回収",s1p:"故障車・不動車・事故車の回収、移動、現場対応。",
 s2:"🔧 緊急修理",s2p:"バッテリー、オイル漏れ、ブレーキ、タイヤ問題に対応。",
 s3:"🚢 港搬送",s3p:"船積み前の修理、港までの搬送をサポート。",
 s4:"🚌 大型車両",s4p:"トラック、ダンプ、バス、大型車両にも対応。",
-formTitle:"お見積り依頼フォーム",customerInfo:"1. お客様情報",
-name:"お名前",phone:"電話番号",fullAddress:"お客様の住所",email:"メール",contactMethod:"希望連絡方法",
-vehicleInfo:"2. 車両情報",vehicleType:"車両タイプ",vehicleName:"車両名",maker:"メーカー",year:"年式",vin:"車台番号またはナンバー",condition:"車両状態",
-problemInfo:"3. トラブル内容",vehicleProblem:"車両トラブル内容",detail:"詳しい内容",
-locationInfo:"4. 現在地・搬送先",vehicleCurrentLocation:"車両の現在地",destination:"希望搬送先・港",
-payment1:"お支払いはカード決済のみ対応しております。",submitBtn:"見積りを依頼する",
-contactTitle:"所在地 / Contact",hoursFull:"営業時間: 月曜日〜土曜日 9:00 AM〜6:00 PM",
-popupTitle:"送信完了しました",popupMsg:"お問い合わせありがとうございます。スタッフよりご連絡いたします。",
+formTitle:"お見積り依頼フォーム",customerInfo:"1. お客様情報",name:"お名前",phone:"電話番号",email:"メール",contactMethod:"希望連絡方法",
+vehicleInfo:"2. 車両情報",vehicleType:"車両タイプ",maker:"メーカー",model:"モデル",year:"年式",vin:"車台番号またはナンバー",condition:"車両状態",
+problemInfo:"3. トラブル内容",problemType:"問題を選択してください",detail:"詳しい内容",locationInfo:"4. 現在地・搬送先",currentAddress:"現在の住所",destination:"希望搬送先・港",
+payment1:"お支払いはカード決済のみ対応しております。",submitBtn:"見積りを依頼する",contactTitle:"所在地 / Contact",hoursFull:"営業時間: 月曜日〜土曜日 9:00 AM〜6:00 PM",
 aiWelcome:"ようこそ Sakura Recovery & Repair Service へ。営業時間は月曜日〜土曜日 9:00 AM〜6:00 PMです。お客様の大切なお車のトラブル時に、私たちがお役に立てれば幸いです。",
-aiSelect:"トラブル内容を選んでください。",notmove:"現在地・車種・症状を教えてください。",accident:"安全な場所に移動し、車の現在地・目的地・写真を送ってください。",repair:"車種・年式・症状を教えてください。",port:"現在地と行き先の港名を教えてください。",price:"料金は距離・車両状態・作業内容で変わります。",other:"お名前・電話番号・住所・車両名・車両現在地・トラブル内容をフォームに入力してください。",formGo:"見積りフォームへ進む"
+aiSelect:"トラブル内容を選んでください。",notmove:"現在地・車種・症状を教えてください。",accident:"安全な場所に移動し、車の現在地・目的地・写真を送ってください。",repair:"車種・年式・症状を教えてください。",port:"現在地と行き先の港名を教えてください。",price:"料金は距離・車両状態・作業内容で変わります。",other:"お名前・電話番号・現在地・車の症状をフォームに入力してください。",formGo:"見積りフォームへ進む"
 },
 en:{
 heroTitle:"If you have vehicle trouble in Okinawa, contact Sakura Recovery & Repair Service",
 heroText1:"Fast support for cars, vans, trucks, dump trucks and buses: recovery, repair, towing and port delivery.",
 heroText2:"Emergency vehicle recovery, repair and port delivery support in Okinawa.",
-hoursTitle:"Business Hours:",hours:"Monday to Saturday, 9:00 AM to 6:00 PM",
+hoursTitle:"Business Hours:",
+hours:"Monday to Saturday, 9:00 AM to 6:00 PM",
 trust:"It would be our pleasure to help you in your difficult time.",
-estimateBtn:"Request Estimate",servicesTitle:"Our Services",
+estimateBtn:"Request Estimate",
+servicesTitle:"Our Services",
 s1:"🚛 Vehicle Recovery",s1p:"Recovery and moving support for broken, non-running and accident vehicles.",
 s2:"🔧 Emergency Repair",s2p:"Battery, oil leak, brake and tire trouble support.",
 s3:"🚢 Port Delivery",s3p:"Vehicle repair and delivery support before shipping.",
 s4:"🚌 Heavy Vehicle",s4p:"Support for trucks, dump trucks, buses and heavy vehicles.",
-formTitle:"Estimate Request Form",customerInfo:"1. Customer Information",
-name:"Full Name",phone:"Telephone Number",fullAddress:"Customer Full Address",email:"Email",contactMethod:"Preferred Contact",
-vehicleInfo:"2. Vehicle Details",vehicleType:"Vehicle Type",vehicleName:"Vehicle Name",maker:"Maker",year:"Year",vin:"VIN or Plate Number",condition:"Running Condition",
-problemInfo:"3. Problem Details",vehicleProblem:"Vehicle Problem",detail:"Detailed Message",
-locationInfo:"4. Location",vehicleCurrentLocation:"Vehicle Current Location",destination:"Destination Port",
-payment1:"Card payment only.",submitBtn:"Send Request",
-contactTitle:"Location / Contact",hoursFull:"Business Hours: Monday to Saturday, 9:00 AM to 6:00 PM",
-popupTitle:"Request Sent Successfully",popupMsg:"Thank you for contacting us. Our staff will contact you soon.",
+formTitle:"Estimate Request Form",customerInfo:"1. Customer Information",name:"Full Name",phone:"Phone Number",email:"Email",contactMethod:"Preferred Contact",
+vehicleInfo:"2. Vehicle Details",vehicleType:"Vehicle Type",maker:"Maker",model:"Model",year:"Year",vin:"VIN or Plate Number",condition:"Running Condition",
+problemInfo:"3. Problem Details",problemType:"Select Problem",detail:"Detailed Message",locationInfo:"4. Location",currentAddress:"Current Vehicle Address",destination:"Destination Port",
+payment1:"Card payment only.",submitBtn:"Send Request",contactTitle:"Location / Contact",hoursFull:"Business Hours: Monday to Saturday, 9:00 AM to 6:00 PM",
 aiWelcome:"Welcome to Sakura Recovery & Repair Service. Business hours are Monday to Saturday, 9:00 AM to 6:00 PM. It would be our pleasure to help you in your difficult time.",
-aiSelect:"Please select your vehicle problem.",notmove:"Please send your location, vehicle type and problem details.",accident:"Please move to a safe place first. Send vehicle location, destination and photos.",repair:"Please tell us vehicle model, year and repair problem.",port:"Please send your current location and destination port name.",price:"Price depends on distance, vehicle condition and work details.",other:"Please enter full name, phone, full address, vehicle name, current location and vehicle problem in the form.",formGo:"Go to Estimate Form"
+aiSelect:"Please select your vehicle problem.",notmove:"Please send your location, vehicle type and problem details.",accident:"Please move to a safe place first. Send vehicle location, destination and photos.",repair:"Please tell us vehicle model, year and repair problem.",port:"Please send your current location and destination port name.",price:"Price depends on distance, vehicle condition and work details.",other:"Please enter your name, phone number, location and vehicle problem in the form.",formGo:"Go to Estimate Form"
+},
+zh:{
+heroTitle:"在冲绳遇到车辆故障，请联系 Sakura Recovery & Repair Service",
+heroText1:"我们提供汽车、厢型车、卡车、自卸车和巴士的救援、维修、拖运和港口运输服务。",
+heroText2:"冲绳车辆救援、维修和港口运输支持。",
+hoursTitle:"营业时间:",
+hours:"周一至周六 9:00 AM〜6:00 PM",
+trust:"在您遇到困难时，能够为您提供帮助是我们的荣幸。",
+estimateBtn:"申请报价",
+servicesTitle:"服务内容",
+s1:"🚛 车辆救援",s1p:"故障车、无法行驶车辆、事故车的回收和移动。",
+s2:"🔧 紧急维修",s2p:"电池、漏油、刹车、轮胎问题支持。",
+s3:"🚢 港口运输",s3p:"装船前维修和港口运输支持。",
+s4:"🚌 大型车辆",s4p:"卡车、自卸车、巴士等大型车辆支持。",
+formTitle:"报价申请表",customerInfo:"1. 客户信息",name:"姓名",phone:"电话号码",email:"邮箱",contactMethod:"首选联系方式",
+vehicleInfo:"2. 车辆信息",vehicleType:"车辆类型",maker:"品牌",model:"型号",year:"年份",vin:"车架号或车牌号",condition:"车辆状态",
+problemInfo:"3. 问题详情",problemType:"选择问题",detail:"详细内容",locationInfo:"4. 位置",currentAddress:"车辆当前位置",destination:"目的港",
+payment1:"仅支持信用卡付款。",submitBtn:"发送申请",contactTitle:"地址 / 联系方式",hoursFull:"营业时间: 周一至周六 9:00 AM〜6:00 PM",
+aiWelcome:"欢迎使用 Sakura Recovery & Repair Service。营业时间为周一至周六 9:00 AM〜6:00 PM。在您困难的时候能够帮助您，是我们的荣幸。",
+aiSelect:"请选择车辆问题。",notmove:"请发送当前位置、车辆类型和问题详情。",accident:"请先移动到安全地点，并发送车辆位置、目的地和照片。",repair:"请告诉我们车型、年份和维修问题。",port:"请发送当前位置和目的港名称。",price:"价格取决于距离、车辆状态和工作内容。",other:"请在表格中填写姓名、电话、位置和车辆问题。",formGo:"前往报价表"
+},
+es:{
+heroTitle:"Si tiene problemas con su vehículo en Okinawa, contacte a Sakura Recovery & Repair Service",
+heroText1:"Soporte rápido para autos, vans, camiones, volquetes y autobuses: recuperación, reparación y entrega al puerto.",
+heroText2:"Servicio de recuperación, reparación y entrega al puerto en Okinawa.",
+hoursTitle:"Horario:",
+hours:"Lunes a sábado, 9:00 AM a 6:00 PM",
+trust:"Será un placer ayudarle en su momento difícil.",
+estimateBtn:"Solicitar Presupuesto",
+servicesTitle:"Servicios",
+s1:"🚛 Recuperación de Vehículos",s1p:"Recuperación y traslado de vehículos averiados o accidentados.",
+s2:"🔧 Reparación de Emergencia",s2p:"Soporte para batería, fuga de aceite, frenos y neumáticos.",
+s3:"🚢 Entrega al Puerto",s3p:"Reparación y transporte antes del envío.",
+s4:"🚌 Vehículos Pesados",s4p:"Soporte para camiones, volquetes, autobuses y vehículos pesados.",
+formTitle:"Formulario de Presupuesto",customerInfo:"1. Información del Cliente",name:"Nombre Completo",phone:"Teléfono",email:"Correo",contactMethod:"Contacto Preferido",
+vehicleInfo:"2. Detalles del Vehículo",vehicleType:"Tipo de Vehículo",maker:"Marca",model:"Modelo",year:"Año",vin:"VIN o Placa",condition:"Estado del Vehículo",
+problemInfo:"3. Detalles del Problema",problemType:"Seleccione Problema",detail:"Mensaje Detallado",locationInfo:"4. Ubicación",currentAddress:"Dirección Actual",destination:"Puerto de Destino",
+payment1:"Solo se acepta pago con tarjeta.",submitBtn:"Enviar Solicitud",contactTitle:"Ubicación / Contacto",hoursFull:"Horario: Lunes a sábado, 9:00 AM a 6:00 PM",
+aiWelcome:"Bienvenido a Sakura Recovery & Repair Service. Horario: lunes a sábado, 9:00 AM a 6:00 PM. Será un placer ayudarle en su momento difícil.",
+aiSelect:"Seleccione el problema del vehículo.",notmove:"Envíe ubicación, tipo de vehículo y detalles del problema.",accident:"Muévase a un lugar seguro. Envíe ubicación, destino y fotos.",repair:"Indique modelo, año y problema de reparación.",port:"Envíe ubicación actual y puerto de destino.",price:"El precio depende de distancia, estado del vehículo y trabajo.",other:"Complete el formulario con nombre, teléfono, ubicación y problema.",formGo:"Ir al Formulario"
+},
+ru:{
+heroTitle:"Если у вас проблема с автомобилем на Окинаве, обратитесь в Sakura Recovery & Repair Service",
+heroText1:"Быстрая помощь для легковых авто, фургонов, грузовиков, самосвалов и автобусов: эвакуация, ремонт и доставка в порт.",
+heroText2:"Помощь с эвакуацией, ремонтом и доставкой в порт на Окинаве.",
+hoursTitle:"Время работы:",
+hours:"Понедельник–суббота, 9:00–18:00",
+trust:"Мы будем рады помочь вам в трудный момент.",
+estimateBtn:"Запросить оценку",
+servicesTitle:"Услуги",
+s1:"🚛 Эвакуация",s1p:"Эвакуация и перемещение неисправных и аварийных автомобилей.",
+s2:"🔧 Срочный ремонт",s2p:"Проблемы с аккумулятором, маслом, тормозами и шинами.",
+s3:"🚢 Доставка в порт",s3p:"Ремонт и перевозка автомобиля перед отправкой.",
+s4:"🚌 Тяжелый транспорт",s4p:"Поддержка грузовиков, самосвалов, автобусов и тяжелой техники.",
+formTitle:"Форма запроса",customerInfo:"1. Информация клиента",name:"Полное имя",phone:"Телефон",email:"Email",contactMethod:"Способ связи",
+vehicleInfo:"2. Данные автомобиля",vehicleType:"Тип автомобиля",maker:"Марка",model:"Модель",year:"Год",vin:"VIN или номер",condition:"Состояние",
+problemInfo:"3. Описание проблемы",problemType:"Выберите проблему",detail:"Подробное сообщение",locationInfo:"4. Местоположение",currentAddress:"Текущий адрес",destination:"Порт назначения",
+payment1:"Оплата только картой.",submitBtn:"Отправить запрос",contactTitle:"Адрес / Контакты",hoursFull:"Время работы: Понедельник–суббота, 9:00–18:00",
+aiWelcome:"Добро пожаловать в Sakura Recovery & Repair Service. Время работы: понедельник–суббота, 9:00–18:00. Мы будем рады помочь вам в трудный момент.",
+aiSelect:"Выберите проблему автомобиля.",notmove:"Отправьте местоположение, тип автомобиля и детали проблемы.",accident:"Сначала перейдите в безопасное место. Отправьте локацию, пункт назначения и фото.",repair:"Сообщите модель, год и проблему ремонта.",port:"Отправьте текущее местоположение и порт назначения.",price:"Цена зависит от расстояния, состояния автомобиля и работы.",other:"Заполните форму: имя, телефон, местоположение и проблема.",formGo:"Перейти к форме"
+},
+vi:{
+heroTitle:"Nếu xe gặp sự cố ở Okinawa, hãy liên hệ Sakura Recovery & Repair Service",
+heroText1:"Hỗ trợ nhanh cho xe hơi, van, xe tải, xe ben và xe buýt: cứu hộ, sửa chữa và giao xe ra cảng.",
+heroText2:"Dịch vụ cứu hộ, sửa chữa và giao xe ra cảng tại Okinawa.",
+hoursTitle:"Giờ làm việc:",
+hours:"Thứ Hai đến Thứ Bảy, 9:00 AM đến 6:00 PM",
+trust:"Chúng tôi rất vui nếu có thể giúp bạn trong lúc khó khăn.",
+estimateBtn:"Yêu cầu báo giá",
+servicesTitle:"Dịch vụ",
+s1:"🚛 Cứu hộ xe",s1p:"Cứu hộ và di chuyển xe hỏng, xe không chạy và xe tai nạn.",
+s2:"🔧 Sửa chữa khẩn cấp",s2p:"Hỗ trợ bình ắc quy, rò dầu, phanh và lốp.",
+s3:"🚢 Giao xe ra cảng",s3p:"Sửa chữa và vận chuyển xe trước khi xuất cảng.",
+s4:"🚌 Xe lớn",s4p:"Hỗ trợ xe tải, xe ben, xe buýt và xe nặng.",
+formTitle:"Mẫu yêu cầu báo giá",customerInfo:"1. Thông tin khách hàng",name:"Họ tên",phone:"Số điện thoại",email:"Email",contactMethod:"Liên hệ ưu tiên",
+vehicleInfo:"2. Thông tin xe",vehicleType:"Loại xe",maker:"Hãng xe",model:"Mẫu xe",year:"Năm",vin:"VIN hoặc biển số",condition:"Tình trạng xe",
+problemInfo:"3. Chi tiết sự cố",problemType:"Chọn vấn đề",detail:"Nội dung chi tiết",locationInfo:"4. Vị trí",currentAddress:"Địa chỉ hiện tại",destination:"Cảng đến",
+payment1:"Chỉ nhận thanh toán bằng thẻ.",submitBtn:"Gửi yêu cầu",contactTitle:"Địa chỉ / Liên hệ",hoursFull:"Giờ làm việc: Thứ Hai đến Thứ Bảy, 9:00 AM đến 6:00 PM",
+aiWelcome:"Chào mừng đến với Sakura Recovery & Repair Service. Giờ làm việc: Thứ Hai đến Thứ Bảy, 9:00 AM đến 6:00 PM. Chúng tôi rất vui nếu có thể giúp bạn trong lúc khó khăn.",
+aiSelect:"Vui lòng chọn vấn đề của xe.",notmove:"Vui lòng gửi vị trí, loại xe và chi tiết sự cố.",accident:"Hãy di chuyển đến nơi an toàn trước. Gửi vị trí xe, điểm đến và hình ảnh.",repair:"Cho biết mẫu xe, năm và vấn đề cần sửa.",port:"Gửi vị trí hiện tại và tên cảng đến.",price:"Giá phụ thuộc vào khoảng cách, tình trạng xe và công việc.",other:"Vui lòng điền tên, số điện thoại, vị trí và sự cố vào form.",formGo:"Đi đến form"
+},
+ko:{
+heroTitle:"오키나와에서 차량 문제가 발생하면 Sakura Recovery & Repair Service로 연락하세요",
+heroText1:"자동차, 밴, 트럭, 덤프, 버스의 견인, 수리, 이동, 항구 운송을 빠르게 지원합니다.",
+heroText2:"오키나와 차량 회수, 수리 및 항구 운송 서비스.",
+hoursTitle:"영업시간:",
+hours:"월요일~토요일 9:00 AM~6:00 PM",
+trust:"어려운 순간에 도움을 드릴 수 있어 기쁩니다.",
+estimateBtn:"견적 요청",
+servicesTitle:"서비스",
+s1:"🚛 차량 회수",s1p:"고장 차량, 비운행 차량, 사고 차량 회수 및 이동.",
+s2:"🔧 긴급 수리",s2p:"배터리, 오일 누유, 브레이크, 타이어 문제 지원.",
+s3:"🚢 항구 운송",s3p:"선적 전 수리 및 항구까지 운송 지원.",
+s4:"🚌 대형 차량",s4p:"트럭, 덤프, 버스 등 대형 차량 지원.",
+formTitle:"견적 요청 양식",customerInfo:"1. 고객 정보",name:"성명",phone:"전화번호",email:"이메일",contactMethod:"선호 연락 방법",
+vehicleInfo:"2. 차량 정보",vehicleType:"차량 종류",maker:"제조사",model:"모델",year:"연식",vin:"VIN 또는 번호판",condition:"차량 상태",
+problemInfo:"3. 문제 내용",problemType:"문제 선택",detail:"상세 내용",locationInfo:"4. 위치",currentAddress:"현재 차량 주소",destination:"목적 항구",
+payment1:"카드 결제만 가능합니다.",submitBtn:"요청 보내기",contactTitle:"위치 / 연락처",hoursFull:"영업시간: 월요일~토요일 9:00 AM~6:00 PM",
+aiWelcome:"Sakura Recovery & Repair Service에 오신 것을 환영합니다. 영업시간은 월요일~토요일 9:00 AM~6:00 PM입니다. 어려운 순간에 도움을 드릴 수 있어 기쁩니다.",
+aiSelect:"차량 문제를 선택해 주세요.",notmove:"현재 위치, 차량 종류, 문제 내용을 보내 주세요.",accident:"먼저 안전한 곳으로 이동하세요. 차량 위치, 목적지, 사진을 보내 주세요.",repair:"차량 모델, 연식, 수리 문제를 알려 주세요.",port:"현재 위치와 목적 항구명을 보내 주세요.",price:"가격은 거리, 차량 상태, 작업 내용에 따라 달라집니다.",other:"양식에 이름, 전화번호, 위치, 차량 문제를 입력해 주세요.",formGo:"견적 양식으로 이동"
+},
+ar:{
+heroTitle:"إذا واجهت مشكلة في السيارة في أوكيناوا، تواصل مع Sakura Recovery & Repair Service",
+heroText1:"دعم سريع للسيارات والشاحنات والحافلات: سحب، إصلاح، نقل وتسليم إلى الميناء.",
+heroText2:"خدمة إنقاذ وإصلاح ونقل المركبات إلى الميناء في أوكيناوا.",
+hoursTitle:"ساعات العمل:",
+hours:"من الاثنين إلى السبت، 9:00 صباحاً إلى 6:00 مساءً",
+trust:"يسعدنا أن نساعدك في وقتك الصعب.",
+estimateBtn:"طلب عرض سعر",
+servicesTitle:"الخدمات",
+s1:"🚛 إنقاذ المركبات",s1p:"إنقاذ ونقل السيارات المعطلة أو المتضررة.",
+s2:"🔧 إصلاح طارئ",s2p:"دعم مشاكل البطارية والزيت والفرامل والإطارات.",
+s3:"🚢 النقل إلى الميناء",s3p:"إصلاح ونقل المركبة قبل الشحن.",
+s4:"🚌 مركبات ثقيلة",s4p:"دعم الشاحنات والحافلات والمركبات الثقيلة.",
+formTitle:"نموذج طلب عرض السعر",customerInfo:"1. معلومات العميل",name:"الاسم الكامل",phone:"رقم الهاتف",email:"البريد الإلكتروني",contactMethod:"طريقة التواصل المفضلة",
+vehicleInfo:"2. معلومات المركبة",vehicleType:"نوع المركبة",maker:"الشركة",model:"الموديل",year:"السنة",vin:"رقم الهيكل أو اللوحة",condition:"حالة المركبة",
+problemInfo:"3. تفاصيل المشكلة",problemType:"اختر المشكلة",detail:"رسالة تفصيلية",locationInfo:"4. الموقع",currentAddress:"عنوان المركبة الحالي",destination:"ميناء الوصول",
+payment1:"الدفع بالبطاقة فقط.",submitBtn:"إرسال الطلب",contactTitle:"الموقع / التواصل",hoursFull:"ساعات العمل: من الاثنين إلى السبت، 9:00 صباحاً إلى 6:00 مساءً",
+aiWelcome:"مرحباً بك في Sakura Recovery & Repair Service. ساعات العمل من الاثنين إلى السبت، 9:00 صباحاً إلى 6:00 مساءً. يسعدنا أن نساعدك في وقتك الصعب.",
+aiSelect:"اختر مشكلة المركبة.",notmove:"أرسل الموقع الحالي ونوع المركبة وتفاصيل المشكلة.",accident:"انتقل أولاً إلى مكان آمن. أرسل موقع المركبة والوجهة والصور.",repair:"أخبرنا بالموديل والسنة ومشكلة الإصلاح.",port:"أرسل الموقع الحالي واسم ميناء الوجهة.",price:"السعر يعتمد على المسافة وحالة المركبة ونوع العمل.",other:"يرجى إدخال الاسم ورقم الهاتف والموقع ومشكلة المركبة في النموذج.",formGo:"اذهب إلى النموذج"
+},
+ur:{
+heroTitle:"Okinawa me gaari ka masla ho to Sakura Recovery & Repair Service se rabta karein",
+heroText1:"Car, van, truck, dump aur bus ke liye recovery, repair, towing aur port delivery support.",
+heroText2:"Okinawa me emergency vehicle recovery, repair aur port delivery support.",
+hoursTitle:"Working Time:",
+hours:"Monday to Saturday, 9:00 AM to 6:00 PM",
+trust:"Yeh hamari khushi hogi ke hum aap ke mushkil waqt me kaam aa saken.",
+estimateBtn:"Estimate Request",
+servicesTitle:"Services",
+s1:"🚛 Vehicle Recovery",s1p:"Broken, non-running aur accident gaari ki recovery aur movement.",
+s2:"🔧 Emergency Repair",s2p:"Battery, oil leak, brake aur tire problem support.",
+s3:"🚢 Port Delivery",s3p:"Shipping se pehle repair aur port tak delivery support.",
+s4:"🚌 Heavy Vehicle",s4p:"Truck, dump, bus aur heavy vehicle support.",
+formTitle:"Estimate Request Form",customerInfo:"1. Customer Information",name:"Full Name",phone:"Phone Number",email:"Email",contactMethod:"Preferred Contact",
+vehicleInfo:"2. Vehicle Details",vehicleType:"Vehicle Type",maker:"Maker",model:"Model",year:"Year",vin:"VIN ya Plate Number",condition:"Vehicle Condition",
+problemInfo:"3. Problem Details",problemType:"Problem Select Karein",detail:"Detailed Message",locationInfo:"4. Location",currentAddress:"Current Vehicle Address",destination:"Destination Port",
+payment1:"Payment sirf card se accepted hai.",submitBtn:"Request Send Karein",contactTitle:"Location / Contact",hoursFull:"Working Time: Monday to Saturday, 9:00 AM to 6:00 PM",
+aiWelcome:"Sakura Recovery & Repair Service me khush aamdeed. Working time Monday to Saturday, 9:00 AM to 6:00 PM hai. Yeh hamari khushi hogi ke hum aap ke mushkil waqt me kaam aa saken.",
+aiSelect:"Apni gaari ka problem select karein.",notmove:"Current location, gaari type aur problem detail bhejein.",accident:"Pehle safe jagah par chale jayein. Gaari ki location, destination aur photo bhejein.",repair:"Gaari model, year aur repair problem bataein.",port:"Current location aur destination port ka naam bhejein.",price:"Price distance, gaari condition aur kaam par depend karta hai.",other:"Form me name, phone number, location aur gaari ka problem likhein.",formGo:"Estimate Form par jayein"
 }
 };
-["zh","es","ru","vi","ko","ar","ur"].forEach(l=>TEXT[l]=TEXT.en);
 
 let currentLang="ja";
 
@@ -337,66 +404,55 @@ currentLang=lang;
 document.documentElement.lang=lang;
 document.documentElement.dir=lang==="ar"?"rtl":"ltr";
 document.querySelectorAll("[data-t]").forEach(el=>{
-const k=el.getAttribute("data-t");
-if(TEXT[lang][k])el.innerHTML=TEXT[lang][k];
+const key=el.getAttribute("data-t");
+if(TEXT[lang][key]) el.innerHTML=TEXT[lang][key];
 });
+document.querySelector(".ai-btn").innerHTML="💬 AI";
 }
 
 changeLang("ja");
 
-function showPopup(){
-document.getElementById("popupTitle").innerHTML=TEXT[currentLang].popupTitle;
-document.getElementById("popupMsg").innerHTML=TEXT[currentLang].popupMsg;
-document.getElementById("successPopup").style.display="flex";
-}
-function closePopup(){
-document.getElementById("successPopup").style.display="none";
-}
-
 document.getElementById("requestForm").addEventListener("submit",async function(e){
 e.preventDefault();
-
-if(!this.checkValidity()){
-this.reportValidity();
-return;
-}
-
 const form=e.target;
 const data=Object.fromEntries(new FormData(form).entries());
 data.created_at=new Date().toISOString();
 data.language=currentLang;
-
 try{
 await fetch("https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify(data)
 });
+alert("送信ありがとうございました。スタッフよりご連絡いたします。");
 form.reset();
-showPopup();
 }catch(error){
-document.getElementById("popupTitle").innerHTML="送信エラー";
-document.getElementById("popupMsg").innerHTML="送信できませんでした。電話でお問い合わせください。";
-document.getElementById("successPopup").style.display="flex";
+alert("送信エラーです。電話でお問い合わせください。");
 }
 });
 
 function toggleAI(){
-const box=document.getElementById("aiBox"),body=document.getElementById("aiBody");
+const box=document.getElementById("aiBox");
+const body=document.getElementById("aiBody");
 box.style.display=box.style.display==="block"?"none":"block";
-if(!body.dataset.started)startAI();
+if(!body.dataset.started) startAI();
 }
+
 function aiMsg(text,type="bot"){
-const body=document.getElementById("aiBody"),div=document.createElement("div");
+const body=document.getElementById("aiBody");
+const div=document.createElement("div");
 div.className="ai-msg "+(type==="user"?"ai-user":"ai-bot");
 div.innerHTML=text;
 body.appendChild(div);
 body.scrollTop=body.scrollHeight;
 }
+
 function startAI(){
-document.getElementById("aiBody").dataset.started="yes";
+const body=document.getElementById("aiBody");
+body.dataset.started="yes";
 aiMsg(TEXT[currentLang].aiWelcome);
-aiMsg(`<div class="lang-row">
+aiMsg(`
+<div class="lang-row">
 <div class="ai-quick" onclick="setAILang('ja')">日本語</div>
 <div class="ai-quick" onclick="setAILang('en')">English</div>
 <div class="ai-quick" onclick="setAILang('zh')">中文</div>
@@ -406,49 +462,61 @@ aiMsg(`<div class="lang-row">
 <div class="ai-quick" onclick="setAILang('ko')">한국어</div>
 <div class="ai-quick" onclick="setAILang('ar')">العربية</div>
 <div class="ai-quick" onclick="setAILang('ur')">Roman Urdu</div>
-</div>`);
+</div>
+`);
 showAIOptions();
 }
+
 function setAILang(lang){
 currentLang=lang;
 document.getElementById("siteLang").value=lang;
 changeLang(lang);
-aiMsg(lang,"user");
+aiMsg(document.getElementById("siteLang").selectedOptions[0].text,"user");
 aiMsg(TEXT[currentLang].aiWelcome);
 showAIOptions();
 }
+
 function showAIOptions(){
-aiMsg(TEXT[currentLang].aiSelect);
-aiMsg(`<div class="ai-quick" onclick="quickAI('notmove')">🚗 Vehicle not moving</div>
-<div class="ai-quick" onclick="quickAI('accident')">🚨 Accident / Tow</div>
-<div class="ai-quick" onclick="quickAI('repair')">🔧 Repair</div>
-<div class="ai-quick" onclick="quickAI('port')">🚢 Port Delivery</div>
-<div class="ai-quick" onclick="quickAI('price')">💴 Price</div>`);
+const L=TEXT[currentLang];
+aiMsg(L.aiSelect);
+aiMsg(`
+<div class="ai-quick" onclick="quickAI('notmove')">🚗 ${currentLang==="ja"?"車が動かない":"Vehicle not moving"}</div>
+<div class="ai-quick" onclick="quickAI('accident')">🚨 ${currentLang==="ja"?"事故・レッカー":"Accident / Tow"}</div>
+<div class="ai-quick" onclick="quickAI('repair')">🔧 ${currentLang==="ja"?"修理相談":"Repair"}</div>
+<div class="ai-quick" onclick="quickAI('port')">🚢 ${currentLang==="ja"?"港まで搬送":"Port Delivery"}</div>
+<div class="ai-quick" onclick="quickAI('price')">💴 ${currentLang==="ja"?"料金":"Price"}</div>
+`);
 }
+
 function quickAI(key){
 aiMsg(key,"user");
-aiMsg(TEXT[currentLang][key]||TEXT[currentLang].other);
-aiMsg(`<div class="ai-quick" onclick="document.getElementById('requestForm').scrollIntoView({behavior:'smooth'})">${TEXT[currentLang].formGo}</div>`);
+const L=TEXT[currentLang];
+aiMsg(L[key]||L.other);
+aiMsg(`<div class="ai-quick" onclick="document.getElementById('requestForm').scrollIntoView({behavior:'smooth'})">${L.formGo}</div>`);
 }
+
 function replyAI(text){
 const s=text.toLowerCase();
 let key="other";
 if(s.includes("start")||s.includes("battery")||s.includes("動かない")||s.includes("gaari"))key="notmove";
-else if(s.includes("accident")||s.includes("tow")||s.includes("事故"))key="accident";
+else if(s.includes("accident")||s.includes("tow")||s.includes("事故")||s.includes("レッカー"))key="accident";
 else if(s.includes("repair")||s.includes("修理"))key="repair";
 else if(s.includes("port")||s.includes("港"))key="port";
-else if(s.includes("price")||s.includes("cost")||s.includes("料金"))key="price";
+else if(s.includes("price")||s.includes("cost")||s.includes("料金")||s.includes("いくら"))key="price";
 quickAI(key);
 }
+
 function sendAI(){
-const input=document.getElementById("aiInput"),text=input.value.trim();
+const input=document.getElementById("aiInput");
+const text=input.value.trim();
 if(!text)return;
 aiMsg(text,"user");
 input.value="";
 setTimeout(()=>replyAI(text),350);
 }
-document.addEventListener("keydown",e=>{
-if(e.key==="Enter"&&document.activeElement.id==="aiInput")sendAI();
+
+document.addEventListener("keydown",function(e){
+if(e.key==="Enter" && document.activeElement.id==="aiInput")sendAI();
 });
 </script>
 
