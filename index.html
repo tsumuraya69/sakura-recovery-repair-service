@@ -1,517 +1,96 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sakura Recovery & Repair Service</title>
-
+<!-- Sakura Recovery AI Chat System ONLY -->
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#111;
-color:white;
-overflow-x:hidden;
-}
-
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-.hero-content{
-max-width:800px;
-}
-
-.hero h1{
-font-size:55px;
-margin-bottom:20px;
-color:#ff4d94;
-}
-
-.hero p{
-font-size:22px;
-line-height:1.6;
-margin-bottom:30px;
-}
-
-.btn{
-display:inline-block;
-padding:15px 28px;
-background:#ff4d94;
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#ff1f75;
-transform:scale(1.05);
-}
-
-.services{
-padding:80px 20px;
-background:#181818;
-text-align:center;
-}
-
-.services h2{
-font-size:42px;
-margin-bottom:50px;
-color:#ff4d94;
-}
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-max-width:1200px;
-margin:auto;
-}
-
-.card{
-background:#222;
-padding:30px;
-border-radius:20px;
-transition:0.3s;
-border:1px solid #333;
-}
-
-.card:hover{
-transform:translateY(-8px);
-border-color:#ff4d94;
-}
-
-.card h3{
-margin:15px 0;
-color:#ff4d94;
-}
-
-.contact{
-padding:80px 20px;
-text-align:center;
-background:#111;
-}
-
-.contact h2{
-font-size:40px;
-margin-bottom:20px;
-color:#ff4d94;
-}
-
-.contact p{
-margin-bottom:30px;
-font-size:18px;
-}
-
-footer{
-padding:25px;
-background:#000;
-text-align:center;
-font-size:14px;
-color:#aaa;
-}
-
-/* AI CHAT */
-
-#sakuraChatBtn{
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:9999;
-background:#ff4d94;
-color:white;
-border:none;
-padding:15px 22px;
-border-radius:50px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 8px 25px rgba(0,0,0,0.4);
-}
-
-#sakuraChatBox{
-position:fixed;
-right:20px;
-bottom:85px;
-width:350px;
-max-width:95%;
-background:white;
-border-radius:18px;
-overflow:hidden;
-display:none;
-z-index:9999;
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
-}
-
-#sakuraChatHead{
-background:#ff4d94;
-color:white;
-padding:15px;
-font-weight:bold;
-font-size:18px;
-}
-
-#sakuraChatBody{
-height:350px;
-overflow-y:auto;
-padding:15px;
-background:#fff5fa;
-}
-
-.msg{
-padding:12px 14px;
-margin:10px 0;
-border-radius:14px;
-font-size:14px;
-line-height:1.5;
-}
-
-.bot{
-background:white;
-border:1px solid #ffd0e0;
-color:#222;
-}
-
-.user{
-background:#ff4d94;
-color:white;
-margin-left:40px;
-}
-
-#sakuraChatInputWrap{
-display:flex;
-border-top:1px solid #eee;
-}
-
-#sakuraChatInput{
-flex:1;
-padding:14px;
-border:none;
-outline:none;
-font-size:14px;
-}
-
-#sakuraChatSend{
-border:none;
-background:#ff4d94;
-color:white;
-padding:0 18px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.quickBtn{
-display:block;
-width:100%;
-margin:6px 0;
-padding:11px;
-border-radius:12px;
-border:1px solid #ff4d94;
-background:white;
-color:#ff4d94;
-font-weight:bold;
-cursor:pointer;
-}
-
-.quickBtn:hover{
-background:#ff4d94;
-color:white;
-}
+#sakuraChatBtn{position:fixed;left:18px;bottom:18px;z-index:9999;background:#ffd000;color:#111;border:none;padding:15px 22px;border-radius:999px;font-weight:bold;cursor:pointer;box-shadow:0 8px 25px #0007;width:auto}
+#sakuraChatBox{position:fixed;left:18px;bottom:80px;width:340px;max-width:92vw;background:white;border-radius:18px;overflow:hidden;display:none;z-index:9999;box-shadow:0 15px 40px #0008}
+#sakuraChatHead{background:#111;color:#ffd000;padding:14px;font-weight:bold}
+#sakuraChatBody{height:330px;overflow-y:auto;padding:12px;background:#fff8df;color:#111}
+.sakuraMsg{padding:10px 12px;margin:8px 0;border-radius:14px;font-size:14px;line-height:1.5}
+.sakuraBot{background:white;border:1px solid #ffd000}
+.sakuraUser{background:#ffd000;color:#111;margin-left:40px}
+#sakuraChatInputWrap{display:flex;border-top:1px solid #ddd}
+#sakuraChatInput{flex:1;border:none;padding:13px;outline:none;font-size:14px;margin:0}
+#sakuraChatSend{width:auto;border:none;background:#ffd000;color:#111;padding:0 15px;font-weight:bold;cursor:pointer;border-radius:0}
+.sakuraQuick{display:block;width:100%;margin:6px 0;padding:10px;border-radius:10px;border:1px solid #ffd000;background:white;color:#111;font-weight:bold;cursor:pointer}
 </style>
-</head>
-
-<body>
-
-<section class="hero">
-<div class="hero-content">
-<h1>Sakura Recovery & Repair Service</h1>
-
-<p>
-24時間対応の車両回収・レッカー・修理サポート。<br>
-沖縄エリア対応。
-</p>
-
-<a href="#contact" class="btn">お問い合わせ</a>
-</div>
-</section>
-
-<section class="services">
-<h2>サービス内容</h2>
-
-<div class="service-grid">
-
-<div class="card">
-<h3>🚗 車両回収</h3>
-<p>故障車・不動車の回収対応。</p>
-</div>
-
-<div class="card">
-<h3>🚨 レッカーサービス</h3>
-<p>事故・エンジントラブル時に迅速対応。</p>
-</div>
-
-<div class="card">
-<h3>🔧 修理相談</h3>
-<p>車両状態確認・修理サポート。</p>
-</div>
-
-<div class="card">
-<h3>🚢 港搬送</h3>
-<p>港までの車両輸送サービス。</p>
-</div>
-
-</div>
-</section>
-
-<section class="contact" id="contact">
-
-<h2>お問い合わせ</h2>
-
-<p>
-AIチャット・WhatsApp・メールで24時間受付中
-</p>
-
-<a class="btn" href="mailto:sakura.recovery.repair@gmail.com">
-メール送信
-</a>
-
-</section>
-
-<footer>
-© 2026 Sakura Recovery & Repair Service
-</footer>
-
-<!-- AI CHAT -->
 
 <button id="sakuraChatBtn">💬 AI相談</button>
 
 <div id="sakuraChatBox">
-
-<div id="sakuraChatHead">
-Sakura Recovery AI
-</div>
-
-<div id="sakuraChatBody">
-</div>
-
-<div id="sakuraChatInputWrap">
-<input id="sakuraChatInput" placeholder="メッセージを入力...">
-<button id="sakuraChatSend">送信</button>
-</div>
-
+  <div id="sakuraChatHead">Sakura Recovery AI</div>
+  <div id="sakuraChatBody"></div>
+  <div id="sakuraChatInputWrap">
+    <input id="sakuraChatInput" placeholder="メッセージを入力...">
+    <button id="sakuraChatSend">送信</button>
+  </div>
 </div>
 
 <script>
+const sakuraChatBtn=document.getElementById("sakuraChatBtn");
+const sakuraChatBox=document.getElementById("sakuraChatBox");
+const sakuraChatBody=document.getElementById("sakuraChatBody");
+const sakuraChatInput=document.getElementById("sakuraChatInput");
+const sakuraChatSend=document.getElementById("sakuraChatSend");
 
-const chatBtn = document.getElementById("sakuraChatBtn");
-const chatBox = document.getElementById("sakuraChatBox");
-const chatBody = document.getElementById("sakuraChatBody");
-const chatInput = document.getElementById("sakuraChatInput");
-const chatSend = document.getElementById("sakuraChatSend");
-
-const WHATSAPP_NUMBER = "819012345678";
-const EMAIL = "sakura.recovery.repair@gmail.com";
-
-chatBtn.onclick = () => {
-
-chatBox.style.display =
-chatBox.style.display === "block"
-? "none"
-: "block";
-
-if(!chatBody.dataset.started){
-startChat();
+function sakuraAddMsg(text,type="sakuraBot"){
+  const div=document.createElement("div");
+  div.className="sakuraMsg "+type;
+  div.innerHTML=text;
+  sakuraChatBody.appendChild(div);
+  sakuraChatBody.scrollTop=sakuraChatBody.scrollHeight;
 }
 
+function sakuraQuick(text){
+  sakuraAddMsg(text,"sakuraUser");
+  sakuraReply(text);
+}
+
+function sakuraStart(){
+  sakuraChatBody.dataset.started="yes";
+  sakuraAddMsg("こんにちは。Sakura Recovery & Repair Serviceです。<br>お車のトラブル内容を選んでください。");
+  sakuraAddMsg(`
+    <button class="sakuraQuick" onclick="sakuraQuick('車が動かない')">🚗 車が動かない</button>
+    <button class="sakuraQuick" onclick="sakuraQuick('事故・レッカー希望')">🚨 事故・レッカー希望</button>
+    <button class="sakuraQuick" onclick="sakuraQuick('修理相談')">🔧 修理相談</button>
+    <button class="sakuraQuick" onclick="sakuraQuick('港まで搬送')">🚢 港まで搬送</button>
+    <button class="sakuraQuick" onclick="sakuraQuick('料金を知りたい')">💴 料金を知りたい</button>
+  `);
+}
+
+function sakuraReply(text){
+  const t=text.toLowerCase();
+
+  if(t.includes("動かない")){
+    sakuraAddMsg("現在地・車種・症状を教えてください。バッテリー、エンジン、タイヤ等を確認します。");
+  }else if(t.includes("事故")||t.includes("レッカー")){
+    sakuraAddMsg("安全な場所に移動してください。車の現在地、目的地、写真があれば送ってください。");
+  }else if(t.includes("修理")){
+    sakuraAddMsg("車種・年式・症状を教えてください。写真がある場合はフォームから送信してください。");
+  }else if(t.includes("港")){
+    sakuraAddMsg("現在地と行き先の港名を教えてください。例：那覇港・中城港など。");
+  }else if(t.includes("料金")||t.includes("price")||t.includes("いくら")){
+    sakuraAddMsg("料金は距離・車両状態・作業内容で変わります。正確な見積りはフォームから送信してください。");
+  }else{
+    sakuraAddMsg("ありがとうございます。お名前・電話番号・現在地・車の症状をフォームに入力してください。");
+  }
+
+  sakuraAddMsg(`<button class="sakuraQuick" onclick="document.getElementById('requestForm').scrollIntoView({behavior:'smooth'})">見積りフォームへ進む</button>`);
+}
+
+sakuraChatBtn.onclick=function(){
+  sakuraChatBox.style.display=sakuraChatBox.style.display==="block"?"none":"block";
+  if(!sakuraChatBody.dataset.started){sakuraStart();}
 };
 
-function addMsg(text,type="bot"){
-
-const div = document.createElement("div");
-
-div.className = "msg " + type;
-
-div.innerHTML = text;
-
-chatBody.appendChild(div);
-
-chatBody.scrollTop = chatBody.scrollHeight;
-
+function sakuraSend(){
+  const text=sakuraChatInput.value.trim();
+  if(!text)return;
+  sakuraAddMsg(text,"sakuraUser");
+  sakuraChatInput.value="";
+  setTimeout(()=>sakuraReply(text),400);
 }
 
-function startChat(){
-
-chatBody.dataset.started = "yes";
-
-addMsg(`
-こんにちは。<br>
-Sakura Recovery & Repair Serviceです。<br><br>
-お車のトラブル内容を教えてください。
-`);
-
-addMsg(`
-
-<button class="quickBtn" onclick="quick('車が動かない')">
-🚗 車が動かない
-</button>
-
-<button class="quickBtn" onclick="quick('事故・レッカー希望')">
-🚨 事故・レッカー希望
-</button>
-
-<button class="quickBtn" onclick="quick('修理相談')">
-🔧 修理相談
-</button>
-
-<button class="quickBtn" onclick="quick('港まで運びたい')">
-🚢 港まで運びたい
-</button>
-
-`);
-
-}
-
-function quick(text){
-
-addMsg(text,"user");
-
-reply(text);
-
-}
-
-function reply(text){
-
-const t = text.toLowerCase();
-
-if(
-t.includes("動かない")
-){
-
-addMsg(`
-現在地・車種・症状を送ってください。<br><br>
-スタッフが確認します。
-`);
-
-}
-
-else if(
-t.includes("事故")
-||
-t.includes("レッカー")
-){
-
-addMsg(`
-事故対応ですね。<br><br>
-安全を確認してから、車の場所と写真を送ってください。
-`);
-
-}
-
-else if(
-t.includes("修理")
-){
-
-addMsg(`
-修理相談ですね。<br><br>
-車種・年式・症状を教えてください。
-`);
-
-}
-
-else if(
-t.includes("港")
-){
-
-addMsg(`
-港搬送ですね。<br><br>
-現在地と行き先の港名を送ってください。
-`);
-
-}
-
-else{
-
-addMsg(`
-ありがとうございます。<br><br>
-お名前・電話番号・車の状態を送ってください。
-`);
-
-}
-
-addMsg(`
-
-<button class="quickBtn" onclick="openWhatsApp()">
-WhatsAppで相談
-</button>
-
-<button class="quickBtn"
-onclick="location.href='mailto:${EMAIL}'">
-メールで相談
-</button>
-
-`);
-
-}
-
-function openWhatsApp(){
-
-const msg = encodeURIComponent(
-"Sakura Recovery Serviceに相談したいです。"
-);
-
-window.open(
-"https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg,
-"_blank"
-);
-
-}
-
-chatSend.onclick = sendMsg;
-
-chatInput.addEventListener(
-"keydown",
-e=>{
-if(e.key==="Enter"){
-sendMsg();
-}
-}
-);
-
-function sendMsg(){
-
-const text = chatInput.value.trim();
-
-if(!text) return;
-
-addMsg(text,"user");
-
-chatInput.value = "";
-
-setTimeout(()=>{
-reply(text);
-},500);
-
-}
-
+sakuraChatSend.onclick=sakuraSend;
+sakuraChatInput.addEventListener("keydown",function(e){
+  if(e.key==="Enter")sakuraSend();
+});
 </script>
-
-</body>
-</html>
