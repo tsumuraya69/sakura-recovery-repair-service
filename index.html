@@ -9,7 +9,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,"Noto Sans JP",sans-serif;background:#111;color:white;overflow-x:hidden}
 .hero{min-height:100vh;padding:30px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden;background-size:cover;background-position:center;animation:bgslide 40s infinite}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.30));z-index:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.45));z-index:0}
 .hero *{position:relative;z-index:2}
 @keyframes bgslide{
 0%{background-image:url("recovery-10.webp")}
@@ -24,7 +24,7 @@ body{font-family:Arial,"Noto Sans JP",sans-serif;background:#111;color:white;ove
 }
 .logo{font-size:28px;font-weight:bold;color:#ffd000;margin-bottom:20px;text-shadow:0 0 10px #000}
 h1{font-size:54px;line-height:1.3;color:#ffd000;margin-bottom:25px;max-width:1100px;text-shadow:0 0 12px #000}
-.hero p{font-size:21px;line-height:1.8;max-width:900px;margin-bottom:20px;text-shadow:0 0 10px #000}
+.hero p{font-size:21px;line-height:1.8;max-width:950px;margin-bottom:16px;text-shadow:0 0 10px #000}
 .btn{display:inline-block;background:#e63946;padding:18px 35px;border-radius:12px;color:white;font-size:20px;font-weight:bold;text-decoration:none;margin-top:20px}
 .section{padding:70px 20px}
 .dark{background:#0a0a0a}
@@ -46,10 +46,11 @@ footer{background:#000;text-align:center;padding:30px;color:#aaa}
 .fixed{position:fixed;right:18px;bottom:18px;z-index:999}
 .fixed a{display:block;background:#19c463;color:white;padding:16px 24px;border-radius:999px;font-weight:bold;text-decoration:none}
 
+/* AI CHAT SAFE */
 .sakura-ai-btn{position:fixed;left:18px;bottom:18px;z-index:99999;background:#ffd000;color:#111;padding:15px 22px;border-radius:999px;font-weight:bold;cursor:pointer;box-shadow:0 8px 25px #0007}
-.sakura-ai-box{position:fixed;left:18px;bottom:82px;width:340px;max-width:92vw;background:white;border-radius:18px;overflow:hidden;display:none;z-index:99999;box-shadow:0 15px 40px #0008}
+.sakura-ai-box{position:fixed;left:18px;bottom:82px;width:360px;max-width:92vw;background:white;border-radius:18px;overflow:hidden;display:none;z-index:99999;box-shadow:0 15px 40px #0008}
 .sakura-ai-head{background:#111;color:#ffd000;padding:14px;font-weight:bold}
-.sakura-ai-body{height:330px;overflow-y:auto;padding:12px;background:#fff8df;color:#111}
+.sakura-ai-body{height:360px;overflow-y:auto;padding:12px;background:#fff8df;color:#111}
 .sakura-ai-msg{padding:10px 12px;margin:8px 0;border-radius:14px;font-size:14px;line-height:1.5}
 .sakura-ai-bot{background:white;border:1px solid #ffd000}
 .sakura-ai-user{background:#ffd000;color:#111;margin-left:40px}
@@ -57,6 +58,7 @@ footer{background:#000;text-align:center;padding:30px;color:#aaa}
 .sakura-ai-input{flex:1;border:none;padding:13px;outline:none;font-size:14px;margin:0}
 .sakura-ai-send{background:#ffd000;color:#111;padding:13px 15px;font-weight:bold;cursor:pointer}
 .sakura-ai-quick{display:block;margin:6px 0;padding:10px;border-radius:10px;border:1px solid #ffd000;background:white;color:#111;font-weight:bold;cursor:pointer;text-align:center}
+.lang-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 
 @media(max-width:700px){
 h1{font-size:34px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.section h2{font-size:30px}.phone{font-size:28px}
@@ -71,6 +73,8 @@ h1{font-size:34px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 <h1>沖縄で自動車トラブルに困ったら、すぐ Sakura Recovery & Repair Service へ</h1>
 <p>車・バン・トラック・ダンプ・バスの故障、修理、移動、港搬送まで迅速にサポートいたします。</p>
 <p>Emergency vehicle recovery, repair and port delivery support in Okinawa.</p>
+<p><b>営業時間:</b> 月曜日〜土曜日 9:00 AM〜6:00 PM</p>
+<p>お客様の大切なお車のトラブル時に、私たちがお役に立てれば幸いです。</p>
 <a class="btn" href="tel:07084455348">📞 070-8445-5348</a>
 </section>
 
@@ -175,6 +179,7 @@ h1{font-size:34px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 <div class="contact">
 <div class="phone">📞 070-8445-5348</div>
 <p>〒901-2416<br>沖縄県中頭郡中城村和宇慶620−1</p>
+<p>営業時間: Monday〜Saturday / 9:00 AM〜6:00 PM</p>
 </div>
 </section>
 
@@ -200,11 +205,10 @@ h1{font-size:34px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.secti
 <script>
 document.getElementById("requestForm").addEventListener("submit", async function(e){
 e.preventDefault();
-
-const form = e.target;
-const formData = new FormData(form);
-const data = Object.fromEntries(formData.entries());
-data.created_at = new Date().toISOString();
+const form=e.target;
+const formData=new FormData(form);
+const data=Object.fromEntries(formData.entries());
+data.created_at=new Date().toISOString();
 
 try{
 await fetch("https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate",{
@@ -212,14 +216,51 @@ method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify(data)
 });
-
 alert("送信ありがとうございました。スタッフよりご連絡いたします。");
 form.reset();
-
 }catch(error){
 alert("送信エラーです。電話でお問い合わせください。");
 }
 });
+
+/* MULTI LANGUAGE AI */
+let sakuraLang="ja";
+
+const langText={
+ja:{
+welcome:"ようこそ Sakura Recovery & Repair Service へ。<br><br>営業時間は月曜日〜土曜日、午前9時〜午後6時です。<br><br>お客様の大切なお車のトラブル時に、私たちがお役に立てれば幸いです。<br><br>言語を選んでください。",
+select:"お車のトラブル内容を選んでください。",
+notmove:"現在地・車種・症状を教えてください。バッテリー、エンジン、タイヤ等を確認します。",
+accident:"安全な場所に移動してください。車の現在地、目的地、写真があれば送ってください。",
+repair:"車種・年式・症状を教えてください。写真がある場合はフォームから送信してください。",
+port:"現在地と行き先の港名を教えてください。例：那覇港・中城港など。",
+price:"料金は距離・車両状態・作業内容で変わります。正確な見積りはフォームから送信してください。",
+other:"ありがとうございます。お名前・電話番号・現在地・車の症状をフォームに入力してください。",
+form:"見積りフォームへ進む"
+},
+en:{
+welcome:"Welcome to Sakura Recovery & Repair Service.<br><br>Business hours: Monday to Saturday, 9:00 AM to 6:00 PM.<br><br>It would be our pleasure to help you in your difficult time.<br><br>Please choose your language.",
+select:"Please select your vehicle problem.",
+notmove:"Please send your current location, vehicle type, and problem details.",
+accident:"Please move to a safe place first. Send vehicle location, destination, and photos if possible.",
+repair:"Please tell us the vehicle model, year, and repair problem.",
+port:"Please send your current location and destination port name.",
+price:"Price depends on distance, vehicle condition, and work details. Please send the form for an accurate estimate.",
+other:"Thank you. Please enter your name, phone number, location, and vehicle problem in the form.",
+form:"Go to Estimate Form"
+},
+ur:{
+welcome:"Sakura Recovery & Repair Service me khush aamdeed.<br><br>Working time: Monday to Saturday, 9:00 AM to 6:00 PM.<br><br>Yeh hamari khushi hogi ke hum aap ke mushkil waqt me kaam aa saken.<br><br>Language select karein.",
+select:"Apni gaari ka problem select karein.",
+notmove:"Current location, gaari type aur problem detail bhejein.",
+accident:"Pehle safe jagah par chale jayein. Gaari ki location, destination aur photo bhejein.",
+repair:"Gaari model, year aur repair problem bataein.",
+port:"Current location aur destination port ka naam bhejein.",
+price:"Price distance, gaari condition aur kaam par depend karta hai. Accurate estimate ke liye form bhejein.",
+other:"Shukriya. Form me name, phone number, location aur gaari ka problem likhein.",
+form:"Estimate Form par jayein"
+}
+};
 
 function sakuraToggleAI(){
 const box=document.getElementById("sakuraAIBox");
@@ -240,39 +281,53 @@ body.scrollTop=body.scrollHeight;
 function sakuraStartAI(){
 const body=document.getElementById("sakuraAIBody");
 body.dataset.started="yes";
-sakuraMsgAI("こんにちは。Sakura Recovery & Repair Serviceです。<br>お車のトラブル内容を選んでください。","bot");
+sakuraMsgAI(langText.ja.welcome,"bot");
 sakuraMsgAI(`
-<div class="sakura-ai-quick" onclick="sakuraQuickAI('車が動かない')">🚗 車が動かない</div>
-<div class="sakura-ai-quick" onclick="sakuraQuickAI('事故・レッカー希望')">🚨 事故・レッカー希望</div>
-<div class="sakura-ai-quick" onclick="sakuraQuickAI('修理相談')">🔧 修理相談</div>
-<div class="sakura-ai-quick" onclick="sakuraQuickAI('港まで搬送')">🚢 港まで搬送</div>
-<div class="sakura-ai-quick" onclick="sakuraQuickAI('料金を知りたい')">💴 料金を知りたい</div>
+<div class="lang-row">
+<div class="sakura-ai-quick" onclick="sakuraSetLang('ja')">日本語</div>
+<div class="sakura-ai-quick" onclick="sakuraSetLang('en')">English</div>
+<div class="sakura-ai-quick" onclick="sakuraSetLang('ur')">Roman Urdu</div>
+</div>
 `,"bot");
 }
 
-function sakuraQuickAI(text){
-sakuraMsgAI(text,"user");
-sakuraReplyAI(text);
+function sakuraSetLang(lang){
+sakuraLang=lang;
+sakuraMsgAI(lang==="ja"?"日本語":lang==="en"?"English":"Roman Urdu","user");
+sakuraShowOptions();
+}
+
+function sakuraShowOptions(){
+const t=langText[sakuraLang];
+sakuraMsgAI(t.select,"bot");
+sakuraMsgAI(`
+<div class="sakura-ai-quick" onclick="sakuraQuickAI('notmove')">🚗 ${sakuraLang==="ur"?"Gaari start nahi hoti":sakuraLang==="en"?"Vehicle not moving":"車が動かない"}</div>
+<div class="sakura-ai-quick" onclick="sakuraQuickAI('accident')">🚨 ${sakuraLang==="ur"?"Accident / recovery":sakuraLang==="en"?"Accident / Tow request":"事故・レッカー希望"}</div>
+<div class="sakura-ai-quick" onclick="sakuraQuickAI('repair')">🔧 ${sakuraLang==="ur"?"Repair consultation":sakuraLang==="en"?"Repair consultation":"修理相談"}</div>
+<div class="sakura-ai-quick" onclick="sakuraQuickAI('port')">🚢 ${sakuraLang==="ur"?"Port delivery":sakuraLang==="en"?"Port delivery":"港まで搬送"}</div>
+<div class="sakura-ai-quick" onclick="sakuraQuickAI('price')">💴 ${sakuraLang==="ur"?"Price maloom karna hai":sakuraLang==="en"?"Price information":"料金を知りたい"}</div>
+`,"bot");
+}
+
+function sakuraQuickAI(key){
+const t=langText[sakuraLang];
+sakuraMsgAI(key,"user");
+sakuraMsgAI(t[key] || t.other,"bot");
+sakuraMsgAI(`<div class="sakura-ai-quick" onclick="document.getElementById('requestForm').scrollIntoView({behavior:'smooth'})">${t.form}</div>`,"bot");
 }
 
 function sakuraReplyAI(text){
-const t=text.toLowerCase();
+const lower=text.toLowerCase();
+let key="other";
+if(lower.includes("動かない")||lower.includes("start")||lower.includes("battery")||lower.includes("gaari"))key="notmove";
+else if(lower.includes("事故")||lower.includes("accident")||lower.includes("tow")||lower.includes("レッカー"))key="accident";
+else if(lower.includes("修理")||lower.includes("repair"))key="repair";
+else if(lower.includes("港")||lower.includes("port"))key="port";
+else if(lower.includes("料金")||lower.includes("price")||lower.includes("いくら"))key="price";
 
-if(t.includes("動かない")){
-sakuraMsgAI("現在地・車種・症状を教えてください。バッテリー、エンジン、タイヤ等を確認します。","bot");
-}else if(t.includes("事故")||t.includes("レッカー")){
-sakuraMsgAI("安全な場所に移動してください。車の現在地、目的地、写真があれば送ってください。","bot");
-}else if(t.includes("修理")){
-sakuraMsgAI("車種・年式・症状を教えてください。写真がある場合はフォームから送信してください。","bot");
-}else if(t.includes("港")){
-sakuraMsgAI("現在地と行き先の港名を教えてください。例：那覇港・中城港など。","bot");
-}else if(t.includes("料金")||t.includes("price")||t.includes("いくら")){
-sakuraMsgAI("料金は距離・車両状態・作業内容で変わります。正確な見積りはフォームから送信してください。","bot");
-}else{
-sakuraMsgAI("ありがとうございます。お名前・電話番号・現在地・車の症状をフォームに入力してください。","bot");
-}
-
-sakuraMsgAI(`<div class="sakura-ai-quick" onclick="document.getElementById('requestForm').scrollIntoView({behavior:'smooth'})">見積りフォームへ進む</div>`,"bot");
+const t=langText[sakuraLang];
+sakuraMsgAI(t[key],"bot");
+sakuraMsgAI(`<div class="sakura-ai-quick" onclick="document.getElementById('requestForm').scrollIntoView({behavior:'smooth'})">${t.form}</div>`,"bot");
 }
 
 function sakuraSendAI(){
