@@ -3,514 +3,453 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sakura Recovery & Repair Service</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,"Noto Sans JP",sans-serif;background:#111;color:white;overflow-x:hidden}
 
-body{
-background:#111;
-color:white;
-overflow-x:hidden;
+.lang-wrap{
+position:fixed;top:14px;left:50%;transform:translateX(-50%);
+z-index:99999;background:linear-gradient(135deg,#111,#3b2f00,#111);
+border:1px solid #ffd000;border-radius:999px;padding:8px 14px;
+box-shadow:0 8px 30px #0009;display:flex;align-items:center;gap:10px
+}
+.lang-wrap span{color:#ffd000;font-weight:bold;font-size:14px;white-space:nowrap}
+.lang-select{
+background:#fff;color:#111;border:2px solid #ffd000;
+padding:9px 14px;border-radius:999px;font-weight:bold;font-size:15px;
+outline:none;min-width:220px
 }
 
 .hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+min-height:100vh;padding:110px 30px 40px;text-align:center;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+position:relative;background-size:cover;background-position:center;
+animation:bgslide 40s infinite
 }
-
-.hero-content{
-max-width:800px;
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.68))}
+.hero>*{position:relative;z-index:2}
+@keyframes bgslide{
+0%{background-image:url("recovery-10.webp")}
+12%{background-image:url("recovery-4.webp")}
+24%{background-image:url("recovery-5.webp")}
+36%{background-image:url("recovery-6.webp")}
+48%{background-image:url("recovery-7.webp")}
+60%{background-image:url("recovery-8.webp")}
+72%{background-image:url("recovery-9.webp")}
+84%{background-image:url("recovery-14.webp")}
+100%{background-image:url("recovery-15.webp")}
 }
+.logo{font-size:28px;font-weight:bold;color:#ffd000;margin-bottom:20px;text-shadow:0 0 10px #000}
+h1{font-size:52px;line-height:1.3;color:#ffd000;margin-bottom:20px;max-width:1100px;text-shadow:0 0 12px #000}
+.hero p{font-size:21px;line-height:1.8;max-width:950px;margin-bottom:12px;text-shadow:0 0 10px #000}
+.btn{display:inline-block;background:#e63946;padding:18px 35px;border-radius:12px;color:white;font-size:20px;font-weight:bold;text-decoration:none;margin:10px}
 
-.hero h1{
-font-size:55px;
-margin-bottom:20px;
-color:#ff4d94;
+.section{padding:70px 20px}
+.dark{background:#0a0a0a}
+.section h2{text-align:center;font-size:40px;color:#ffd000;margin-bottom:45px}
+.grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{background:#1b1b1b;padding:30px;border-radius:18px;border:1px solid #333}
+.card h3{font-size:24px;margin-bottom:15px;color:#e63946}
+.card p{line-height:1.8;font-size:17px}
+
+.form{max-width:950px;margin:auto;background:#1a1a1a;padding:35px;border-radius:20px;border:1px solid #333}
+.form h3{font-size:28px;margin-bottom:25px;color:#ffd000}
+label{display:block;margin-bottom:10px;font-weight:bold;color:#ffd000}
+.req{color:#ff4d4d}
+input,select,textarea{width:100%;padding:15px;margin-bottom:20px;border-radius:10px;border:none;font-size:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+button{width:100%;padding:18px;border:none;background:#ffd000;color:#111;font-size:20px;font-weight:bold;border-radius:12px;cursor:pointer}
+.notice{background:#241b00;border:1px solid #ffd000;padding:20px;border-radius:15px;margin:20px 0}
+.contact{text-align:center}
+.phone{font-size:38px;font-weight:bold;color:#e63946;margin-bottom:15px}
+footer{background:#000;text-align:center;padding:30px;color:#aaa}
+
+.fixed{position:fixed;right:18px;bottom:18px;z-index:999}
+.fixed a{display:block;background:#19c463;color:white;padding:16px 24px;border-radius:999px;font-weight:bold;text-decoration:none}
+
+/* Luxury popup */
+.popup-bg{
+position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100000;
+display:none;align-items:center;justify-content:center;padding:20px
 }
-
-.hero p{
-font-size:22px;
-line-height:1.6;
-margin-bottom:30px;
+.popup-card{
+max-width:460px;width:100%;background:linear-gradient(145deg,#fff,#fff8d8,#ffe7f0);
+color:#111;border-radius:26px;padding:34px 26px;text-align:center;
+border:3px solid #ffd000;box-shadow:0 25px 80px #000;
+animation:pop .35s ease
 }
-
-.btn{
-display:inline-block;
-padding:15px 28px;
-background:#ff4d94;
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#ff1f75;
-transform:scale(1.05);
-}
-
-.services{
-padding:80px 20px;
-background:#181818;
-text-align:center;
-}
-
-.services h2{
-font-size:42px;
-margin-bottom:50px;
-color:#ff4d94;
-}
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-max-width:1200px;
-margin:auto;
-}
-
-.card{
-background:#222;
-padding:30px;
-border-radius:20px;
-transition:0.3s;
-border:1px solid #333;
-}
-
-.card:hover{
-transform:translateY(-8px);
-border-color:#ff4d94;
-}
-
-.card h3{
-margin:15px 0;
-color:#ff4d94;
-}
-
-.contact{
-padding:80px 20px;
-text-align:center;
-background:#111;
-}
-
-.contact h2{
-font-size:40px;
-margin-bottom:20px;
-color:#ff4d94;
-}
-
-.contact p{
-margin-bottom:30px;
-font-size:18px;
-}
-
-footer{
-padding:25px;
-background:#000;
-text-align:center;
-font-size:14px;
-color:#aaa;
+@keyframes pop{from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
+.popup-icon{font-size:54px;margin-bottom:12px}
+.popup-card h3{font-size:28px;color:#b8860b;margin-bottom:12px}
+.popup-card p{font-size:17px;line-height:1.7;color:#333}
+.popup-ok{
+margin-top:24px;display:inline-block;background:linear-gradient(135deg,#ffd000,#ff7a00,#e63946);
+color:white;padding:14px 34px;border-radius:999px;font-weight:bold;cursor:pointer;
+box-shadow:0 8px 20px #0004
 }
 
 /* AI CHAT */
+.ai-btn{position:fixed;left:18px;bottom:18px;z-index:99999;background:#ffd000;color:#111;padding:15px 22px;border-radius:999px;font-weight:bold;cursor:pointer;box-shadow:0 8px 25px #0007}
+.ai-box{position:fixed;left:18px;bottom:82px;width:370px;max-width:92vw;background:white;border-radius:18px;overflow:hidden;display:none;z-index:99999;box-shadow:0 15px 40px #0008}
+.ai-head{background:#111;color:#ffd000;padding:14px;font-weight:bold}
+.ai-body{height:380px;overflow-y:auto;padding:12px;background:#fff8df;color:#111}
+.ai-msg{padding:10px 12px;margin:8px 0;border-radius:14px;font-size:14px;line-height:1.5}
+.ai-bot{background:white;border:1px solid #ffd000}
+.ai-user{background:#ffd000;color:#111;margin-left:40px}
+.ai-input-wrap{display:flex;border-top:1px solid #ddd}
+.ai-input{flex:1;border:none;padding:13px;outline:none;font-size:14px;margin:0}
+.ai-send{background:#ffd000;color:#111;padding:13px 15px;font-weight:bold;cursor:pointer}
+.ai-quick{display:block;margin:6px 0;padding:10px;border-radius:10px;border:1px solid #ffd000;background:white;color:#111;font-weight:bold;cursor:pointer;text-align:center}
+.lang-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 
-#sakuraChatBtn{
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:9999;
-background:#ff4d94;
-color:white;
-border:none;
-padding:15px 22px;
-border-radius:50px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 8px 25px rgba(0,0,0,0.4);
-}
-
-#sakuraChatBox{
-position:fixed;
-right:20px;
-bottom:85px;
-width:350px;
-max-width:95%;
-background:white;
-border-radius:18px;
-overflow:hidden;
-display:none;
-z-index:9999;
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
-}
-
-#sakuraChatHead{
-background:#ff4d94;
-color:white;
-padding:15px;
-font-weight:bold;
-font-size:18px;
-}
-
-#sakuraChatBody{
-height:350px;
-overflow-y:auto;
-padding:15px;
-background:#fff5fa;
-}
-
-.msg{
-padding:12px 14px;
-margin:10px 0;
-border-radius:14px;
-font-size:14px;
-line-height:1.5;
-}
-
-.bot{
-background:white;
-border:1px solid #ffd0e0;
-color:#222;
-}
-
-.user{
-background:#ff4d94;
-color:white;
-margin-left:40px;
-}
-
-#sakuraChatInputWrap{
-display:flex;
-border-top:1px solid #eee;
-}
-
-#sakuraChatInput{
-flex:1;
-padding:14px;
-border:none;
-outline:none;
-font-size:14px;
-}
-
-#sakuraChatSend{
-border:none;
-background:#ff4d94;
-color:white;
-padding:0 18px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.quickBtn{
-display:block;
-width:100%;
-margin:6px 0;
-padding:11px;
-border-radius:12px;
-border:1px solid #ff4d94;
-background:white;
-color:#ff4d94;
-font-weight:bold;
-cursor:pointer;
-}
-
-.quickBtn:hover{
-background:#ff4d94;
-color:white;
+@media(max-width:700px){
+.lang-wrap{top:8px;width:94%;justify-content:center;border-radius:16px}
+.lang-wrap span{font-size:12px}
+.lang-select{min-width:170px;font-size:14px}
+h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.section h2{font-size:30px}.phone{font-size:28px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="lang-wrap">
+<span>🌐 Language</span>
+<select class="lang-select" id="siteLang" onchange="changeLang(this.value)">
+<option value="ja">日本語 Japanese</option>
+<option value="en">English</option>
+<option value="zh">中文 Chinese</option>
+<option value="es">Español Spanish</option>
+<option value="ru">Русский Russian</option>
+<option value="vi">Tiếng Việt Vietnamese</option>
+<option value="ko">한국어 Korean</option>
+<option value="ar">العربية Arabic</option>
+<option value="ur">Roman Urdu</option>
+</select>
+</div>
+
 <section class="hero">
-<div class="hero-content">
-<h1>Sakura Recovery & Repair Service</h1>
+<div class="logo">🌸 Sakura Recovery & Repair Service</div>
+<h1 data-t="heroTitle"></h1>
+<p data-t="heroText1"></p>
+<p data-t="heroText2"></p>
+<p><b data-t="hoursTitle"></b> <span data-t="hours"></span></p>
+<p data-t="trust"></p>
+<a class="btn" href="tel:07084455348">📞 070-8445-5348</a>
+<a class="btn" href="#requestForm" data-t="estimateBtn"></a>
+</section>
 
-<p>
-24時間対応の車両回収・レッカー・修理サポート。<br>
-沖縄エリア対応。
-</p>
-
-<a href="#contact" class="btn">お問い合わせ</a>
+<section class="section dark">
+<h2 data-t="servicesTitle"></h2>
+<div class="grid">
+<div class="card"><h3 data-t="s1"></h3><p data-t="s1p"></p></div>
+<div class="card"><h3 data-t="s2"></h3><p data-t="s2p"></p></div>
+<div class="card"><h3 data-t="s3"></h3><p data-t="s3p"></p></div>
+<div class="card"><h3 data-t="s4"></h3><p data-t="s4p"></p></div>
 </div>
 </section>
 
-<section class="services">
-<h2>サービス内容</h2>
+<section class="section">
+<h2 data-t="formTitle"></h2>
 
-<div class="service-grid">
+<form class="form" id="requestForm">
+<h3 data-t="customerInfo"></h3>
 
-<div class="card">
-<h3>🚗 車両回収</h3>
-<p>故障車・不動車の回収対応。</p>
+<div class="grid2">
+<div>
+<label><span data-t="name"></span> <span class="req">*</span></label>
+<input type="text" name="customer_name" required>
+</div>
+<div>
+<label><span data-t="phone"></span> <span class="req">*</span></label>
+<input type="tel" name="phone" required>
+</div>
 </div>
 
-<div class="card">
-<h3>🚨 レッカーサービス</h3>
-<p>事故・エンジントラブル時に迅速対応。</p>
+<label><span data-t="fullAddress"></span> <span class="req">*</span></label>
+<textarea name="customer_full_address" rows="3" required></textarea>
+
+<div class="grid2">
+<div><label data-t="email"></label><input type="email" name="email"></div>
+<div>
+<label data-t="contactMethod"></label>
+<select name="contact_method">
+<option>Phone</option><option>WhatsApp</option><option>LINE</option><option>Email</option>
+</select>
+</div>
 </div>
 
-<div class="card">
-<h3>🔧 修理相談</h3>
-<p>車両状態確認・修理サポート。</p>
+<h3 data-t="vehicleInfo"></h3>
+
+<div class="grid2">
+<div>
+<label data-t="vehicleType"></label>
+<select name="vehicle_type">
+<option>Car</option><option>Van</option><option>Truck</option><option>Dump</option><option>Bus</option><option>Other</option>
+</select>
+</div>
+<div>
+<label><span data-t="vehicleName"></span> <span class="req">*</span></label>
+<input type="text" name="vehicle_name" required>
+</div>
 </div>
 
-<div class="card">
-<h3>🚢 港搬送</h3>
-<p>港までの車両輸送サービス。</p>
+<div class="grid2">
+<div><label data-t="maker"></label><input type="text" name="maker"></div>
+<div><label data-t="year"></label><input type="text" name="year"></div>
 </div>
 
+<label data-t="vin"></label>
+<input type="text" name="vin_plate">
+
+<label data-t="condition"></label>
+<select name="running_condition">
+<option>Running</option><option>Not starting</option><option>Cannot move</option><option>Damaged</option>
+</select>
+
+<h3 data-t="problemInfo"></h3>
+
+<label><span data-t="vehicleProblem"></span> <span class="req">*</span></label>
+<select name="vehicle_problem" required>
+<option value="">Select problem</option>
+<option>Engine not starting</option>
+<option>Battery dead</option>
+<option>Tire problem</option>
+<option>Oil leaking</option>
+<option>Brake problem</option>
+<option>Accident / Damaged</option>
+<option>Port delivery</option>
+<option>Other</option>
+</select>
+
+<label data-t="detail"></label>
+<textarea name="problem_detail" rows="5"></textarea>
+
+<h3 data-t="locationInfo"></h3>
+
+<label><span data-t="vehicleCurrentLocation"></span> <span class="req">*</span></label>
+<textarea name="vehicle_current_location" rows="3" required></textarea>
+
+<label>Google Map Link</label>
+<input type="text" name="map_link">
+
+<label data-t="destination"></label>
+<input type="text" name="destination_port" placeholder="Naha Port, Nakagusuku Port...">
+
+<div class="notice">
+<h3>💳 Payment Policy</h3>
+<p data-t="payment1"></p>
+<p>Payment is accepted by card only.</p>
+</div>
+
+<button type="submit" data-t="submitBtn"></button>
+</form>
+</section>
+
+<section class="section dark">
+<h2 data-t="contactTitle"></h2>
+<div class="contact">
+<div class="phone">📞 070-8445-5348</div>
+<p>〒901-2416<br>沖縄県中頭郡中城村和宇慶620−1</p>
+<p data-t="hoursFull"></p>
 </div>
 </section>
 
-<section class="contact" id="contact">
+<div class="fixed"><a href="tel:07084455348">📞 Call</a></div>
+<footer>© 2026 Sakura Recovery & Repair Service</footer>
 
-<h2>お問い合わせ</h2>
+<div class="ai-btn" onclick="toggleAI()">💬 AI</div>
 
-<p>
-AIチャット・WhatsApp・メールで24時間受付中
-</p>
-
-<a class="btn" href="mailto:sakura.recovery.repair@gmail.com">
-メール送信
-</a>
-
-</section>
-
-<footer>
-© 2026 Sakura Recovery & Repair Service
-</footer>
-
-<!-- AI CHAT -->
-
-<button id="sakuraChatBtn">💬 AI相談</button>
-
-<div id="sakuraChatBox">
-
-<div id="sakuraChatHead">
-Sakura Recovery AI
+<div class="ai-box" id="aiBox">
+<div class="ai-head">Sakura Recovery AI</div>
+<div class="ai-body" id="aiBody"></div>
+<div class="ai-input-wrap">
+<input class="ai-input" id="aiInput" placeholder="Message...">
+<div class="ai-send" onclick="sendAI()">Send</div>
+</div>
 </div>
 
-<div id="sakuraChatBody">
+<div class="popup-bg" id="successPopup">
+<div class="popup-card">
+<div class="popup-icon">🌸✅</div>
+<h3 id="popupTitle">送信完了</h3>
+<p id="popupMsg">お問い合わせありがとうございます。スタッフよりご連絡いたします。</p>
+<div class="popup-ok" onclick="closePopup()">OK</div>
 </div>
-
-<div id="sakuraChatInputWrap">
-<input id="sakuraChatInput" placeholder="メッセージを入力...">
-<button id="sakuraChatSend">送信</button>
-</div>
-
 </div>
 
 <script>
-
-const chatBtn = document.getElementById("sakuraChatBtn");
-const chatBox = document.getElementById("sakuraChatBox");
-const chatBody = document.getElementById("sakuraChatBody");
-const chatInput = document.getElementById("sakuraChatInput");
-const chatSend = document.getElementById("sakuraChatSend");
-
-const WHATSAPP_NUMBER = "819012345678";
-const EMAIL = "sakura.recovery.repair@gmail.com";
-
-chatBtn.onclick = () => {
-
-chatBox.style.display =
-chatBox.style.display === "block"
-? "none"
-: "block";
-
-if(!chatBody.dataset.started){
-startChat();
+const TEXT={
+ja:{
+heroTitle:"沖縄で自動車トラブルに困ったら、すぐ Sakura Recovery & Repair Service へ",
+heroText1:"車・バン・トラック・ダンプ・バスの故障、修理、移動、港搬送まで迅速にサポートいたします。",
+heroText2:"沖縄の車両回収・修理・港搬送サポート。",
+hoursTitle:"営業時間:",hours:"月曜日〜土曜日 9:00 AM〜6:00 PM",
+trust:"お客様の大切なお車のトラブル時に、私たちがお役に立てれば幸いです。",
+estimateBtn:"見積り依頼",servicesTitle:"対応サービス",
+s1:"🚛 車両回収",s1p:"故障車・不動車・事故車の回収、移動、現場対応。",
+s2:"🔧 緊急修理",s2p:"バッテリー、オイル漏れ、ブレーキ、タイヤ問題に対応。",
+s3:"🚢 港搬送",s3p:"船積み前の修理、港までの搬送をサポート。",
+s4:"🚌 大型車両",s4p:"トラック、ダンプ、バス、大型車両にも対応。",
+formTitle:"お見積り依頼フォーム",customerInfo:"1. お客様情報",
+name:"お名前",phone:"電話番号",fullAddress:"お客様の住所",email:"メール",contactMethod:"希望連絡方法",
+vehicleInfo:"2. 車両情報",vehicleType:"車両タイプ",vehicleName:"車両名",maker:"メーカー",year:"年式",vin:"車台番号またはナンバー",condition:"車両状態",
+problemInfo:"3. トラブル内容",vehicleProblem:"車両トラブル内容",detail:"詳しい内容",
+locationInfo:"4. 現在地・搬送先",vehicleCurrentLocation:"車両の現在地",destination:"希望搬送先・港",
+payment1:"お支払いはカード決済のみ対応しております。",submitBtn:"見積りを依頼する",
+contactTitle:"所在地 / Contact",hoursFull:"営業時間: 月曜日〜土曜日 9:00 AM〜6:00 PM",
+popupTitle:"送信完了しました",popupMsg:"お問い合わせありがとうございます。スタッフよりご連絡いたします。",
+aiWelcome:"ようこそ Sakura Recovery & Repair Service へ。営業時間は月曜日〜土曜日 9:00 AM〜6:00 PMです。お客様の大切なお車のトラブル時に、私たちがお役に立てれば幸いです。",
+aiSelect:"トラブル内容を選んでください。",notmove:"現在地・車種・症状を教えてください。",accident:"安全な場所に移動し、車の現在地・目的地・写真を送ってください。",repair:"車種・年式・症状を教えてください。",port:"現在地と行き先の港名を教えてください。",price:"料金は距離・車両状態・作業内容で変わります。",other:"お名前・電話番号・住所・車両名・車両現在地・トラブル内容をフォームに入力してください。",formGo:"見積りフォームへ進む"
+},
+en:{
+heroTitle:"If you have vehicle trouble in Okinawa, contact Sakura Recovery & Repair Service",
+heroText1:"Fast support for cars, vans, trucks, dump trucks and buses: recovery, repair, towing and port delivery.",
+heroText2:"Emergency vehicle recovery, repair and port delivery support in Okinawa.",
+hoursTitle:"Business Hours:",hours:"Monday to Saturday, 9:00 AM to 6:00 PM",
+trust:"It would be our pleasure to help you in your difficult time.",
+estimateBtn:"Request Estimate",servicesTitle:"Our Services",
+s1:"🚛 Vehicle Recovery",s1p:"Recovery and moving support for broken, non-running and accident vehicles.",
+s2:"🔧 Emergency Repair",s2p:"Battery, oil leak, brake and tire trouble support.",
+s3:"🚢 Port Delivery",s3p:"Vehicle repair and delivery support before shipping.",
+s4:"🚌 Heavy Vehicle",s4p:"Support for trucks, dump trucks, buses and heavy vehicles.",
+formTitle:"Estimate Request Form",customerInfo:"1. Customer Information",
+name:"Full Name",phone:"Telephone Number",fullAddress:"Customer Full Address",email:"Email",contactMethod:"Preferred Contact",
+vehicleInfo:"2. Vehicle Details",vehicleType:"Vehicle Type",vehicleName:"Vehicle Name",maker:"Maker",year:"Year",vin:"VIN or Plate Number",condition:"Running Condition",
+problemInfo:"3. Problem Details",vehicleProblem:"Vehicle Problem",detail:"Detailed Message",
+locationInfo:"4. Location",vehicleCurrentLocation:"Vehicle Current Location",destination:"Destination Port",
+payment1:"Card payment only.",submitBtn:"Send Request",
+contactTitle:"Location / Contact",hoursFull:"Business Hours: Monday to Saturday, 9:00 AM to 6:00 PM",
+popupTitle:"Request Sent Successfully",popupMsg:"Thank you for contacting us. Our staff will contact you soon.",
+aiWelcome:"Welcome to Sakura Recovery & Repair Service. Business hours are Monday to Saturday, 9:00 AM to 6:00 PM. It would be our pleasure to help you in your difficult time.",
+aiSelect:"Please select your vehicle problem.",notmove:"Please send your location, vehicle type and problem details.",accident:"Please move to a safe place first. Send vehicle location, destination and photos.",repair:"Please tell us vehicle model, year and repair problem.",port:"Please send your current location and destination port name.",price:"Price depends on distance, vehicle condition and work details.",other:"Please enter full name, phone, full address, vehicle name, current location and vehicle problem in the form.",formGo:"Go to Estimate Form"
 }
-
 };
+["zh","es","ru","vi","ko","ar","ur"].forEach(l=>TEXT[l]=TEXT.en);
 
-function addMsg(text,type="bot"){
+let currentLang="ja";
 
-const div = document.createElement("div");
-
-div.className = "msg " + type;
-
-div.innerHTML = text;
-
-chatBody.appendChild(div);
-
-chatBody.scrollTop = chatBody.scrollHeight;
-
+function changeLang(lang){
+currentLang=lang;
+document.documentElement.lang=lang;
+document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+document.querySelectorAll("[data-t]").forEach(el=>{
+const k=el.getAttribute("data-t");
+if(TEXT[lang][k])el.innerHTML=TEXT[lang][k];
+});
 }
 
-function startChat(){
+changeLang("ja");
 
-chatBody.dataset.started = "yes";
-
-addMsg(`
-こんにちは。<br>
-Sakura Recovery & Repair Serviceです。<br><br>
-お車のトラブル内容を教えてください。
-`);
-
-addMsg(`
-
-<button class="quickBtn" onclick="quick('車が動かない')">
-🚗 車が動かない
-</button>
-
-<button class="quickBtn" onclick="quick('事故・レッカー希望')">
-🚨 事故・レッカー希望
-</button>
-
-<button class="quickBtn" onclick="quick('修理相談')">
-🔧 修理相談
-</button>
-
-<button class="quickBtn" onclick="quick('港まで運びたい')">
-🚢 港まで運びたい
-</button>
-
-`);
-
+function showPopup(){
+document.getElementById("popupTitle").innerHTML=TEXT[currentLang].popupTitle;
+document.getElementById("popupMsg").innerHTML=TEXT[currentLang].popupMsg;
+document.getElementById("successPopup").style.display="flex";
+}
+function closePopup(){
+document.getElementById("successPopup").style.display="none";
 }
 
-function quick(text){
+document.getElementById("requestForm").addEventListener("submit",async function(e){
+e.preventDefault();
 
-addMsg(text,"user");
-
-reply(text);
-
+if(!this.checkValidity()){
+this.reportValidity();
+return;
 }
 
-function reply(text){
+const form=e.target;
+const data=Object.fromEntries(new FormData(form).entries());
+data.created_at=new Date().toISOString();
+data.language=currentLang;
 
-const t = text.toLowerCase();
-
-if(
-t.includes("動かない")
-){
-
-addMsg(`
-現在地・車種・症状を送ってください。<br><br>
-スタッフが確認します。
-`);
-
+try{
+await fetch("https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+});
+form.reset();
+showPopup();
+}catch(error){
+document.getElementById("popupTitle").innerHTML="送信エラー";
+document.getElementById("popupMsg").innerHTML="送信できませんでした。電話でお問い合わせください。";
+document.getElementById("successPopup").style.display="flex";
 }
+});
 
-else if(
-t.includes("事故")
-||
-t.includes("レッカー")
-){
-
-addMsg(`
-事故対応ですね。<br><br>
-安全を確認してから、車の場所と写真を送ってください。
-`);
-
+function toggleAI(){
+const box=document.getElementById("aiBox"),body=document.getElementById("aiBody");
+box.style.display=box.style.display==="block"?"none":"block";
+if(!body.dataset.started)startAI();
 }
-
-else if(
-t.includes("修理")
-){
-
-addMsg(`
-修理相談ですね。<br><br>
-車種・年式・症状を教えてください。
-`);
-
+function aiMsg(text,type="bot"){
+const body=document.getElementById("aiBody"),div=document.createElement("div");
+div.className="ai-msg "+(type==="user"?"ai-user":"ai-bot");
+div.innerHTML=text;
+body.appendChild(div);
+body.scrollTop=body.scrollHeight;
 }
-
-else if(
-t.includes("港")
-){
-
-addMsg(`
-港搬送ですね。<br><br>
-現在地と行き先の港名を送ってください。
-`);
-
+function startAI(){
+document.getElementById("aiBody").dataset.started="yes";
+aiMsg(TEXT[currentLang].aiWelcome);
+aiMsg(`<div class="lang-row">
+<div class="ai-quick" onclick="setAILang('ja')">日本語</div>
+<div class="ai-quick" onclick="setAILang('en')">English</div>
+<div class="ai-quick" onclick="setAILang('zh')">中文</div>
+<div class="ai-quick" onclick="setAILang('es')">Español</div>
+<div class="ai-quick" onclick="setAILang('ru')">Русский</div>
+<div class="ai-quick" onclick="setAILang('vi')">Tiếng Việt</div>
+<div class="ai-quick" onclick="setAILang('ko')">한국어</div>
+<div class="ai-quick" onclick="setAILang('ar')">العربية</div>
+<div class="ai-quick" onclick="setAILang('ur')">Roman Urdu</div>
+</div>`);
+showAIOptions();
 }
-
-else{
-
-addMsg(`
-ありがとうございます。<br><br>
-お名前・電話番号・車の状態を送ってください。
-`);
-
+function setAILang(lang){
+currentLang=lang;
+document.getElementById("siteLang").value=lang;
+changeLang(lang);
+aiMsg(lang,"user");
+aiMsg(TEXT[currentLang].aiWelcome);
+showAIOptions();
 }
-
-addMsg(`
-
-<button class="quickBtn" onclick="openWhatsApp()">
-WhatsAppで相談
-</button>
-
-<button class="quickBtn"
-onclick="location.href='mailto:${EMAIL}'">
-メールで相談
-</button>
-
-`);
-
+function showAIOptions(){
+aiMsg(TEXT[currentLang].aiSelect);
+aiMsg(`<div class="ai-quick" onclick="quickAI('notmove')">🚗 Vehicle not moving</div>
+<div class="ai-quick" onclick="quickAI('accident')">🚨 Accident / Tow</div>
+<div class="ai-quick" onclick="quickAI('repair')">🔧 Repair</div>
+<div class="ai-quick" onclick="quickAI('port')">🚢 Port Delivery</div>
+<div class="ai-quick" onclick="quickAI('price')">💴 Price</div>`);
 }
-
-function openWhatsApp(){
-
-const msg = encodeURIComponent(
-"Sakura Recovery Serviceに相談したいです。"
-);
-
-window.open(
-"https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg,
-"_blank"
-);
-
+function quickAI(key){
+aiMsg(key,"user");
+aiMsg(TEXT[currentLang][key]||TEXT[currentLang].other);
+aiMsg(`<div class="ai-quick" onclick="document.getElementById('requestForm').scrollIntoView({behavior:'smooth'})">${TEXT[currentLang].formGo}</div>`);
 }
-
-chatSend.onclick = sendMsg;
-
-chatInput.addEventListener(
-"keydown",
-e=>{
-if(e.key==="Enter"){
-sendMsg();
+function replyAI(text){
+const s=text.toLowerCase();
+let key="other";
+if(s.includes("start")||s.includes("battery")||s.includes("動かない")||s.includes("gaari"))key="notmove";
+else if(s.includes("accident")||s.includes("tow")||s.includes("事故"))key="accident";
+else if(s.includes("repair")||s.includes("修理"))key="repair";
+else if(s.includes("port")||s.includes("港"))key="port";
+else if(s.includes("price")||s.includes("cost")||s.includes("料金"))key="price";
+quickAI(key);
 }
+function sendAI(){
+const input=document.getElementById("aiInput"),text=input.value.trim();
+if(!text)return;
+aiMsg(text,"user");
+input.value="";
+setTimeout(()=>replyAI(text),350);
 }
-);
-
-function sendMsg(){
-
-const text = chatInput.value.trim();
-
-if(!text) return;
-
-addMsg(text,"user");
-
-chatInput.value = "";
-
-setTimeout(()=>{
-reply(text);
-},500);
-
-}
-
+document.addEventListener("keydown",e=>{
+if(e.key==="Enter"&&document.activeElement.id==="aiInput")sendAI();
+});
 </script>
 
 </body>
