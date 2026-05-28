@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakura Recovery & Repair Service</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:#fff;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:#111;
+padding:30px;
+border-radius:20px;
+border:2px solid gold;
+}
+
+h1{
+text-align:center;
+color:gold;
+margin-bottom:25px;
+font-size:42px;
+}
+
+.section-title{
+color:gold;
+font-size:30px;
+margin-top:30px;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+@media(max-width:768px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+color:gold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:15px;
+border-radius:10px;
+border:none;
+background:#ddd;
+font-size:16px;
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+button{
+width:100%;
+padding:18px;
+background:gold;
+color:#000;
+border:none;
+border-radius:12px;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+margin-top:30px;
+}
+
+button:hover{
+background:#ffdd00;
+}
+
+.notice{
+background:#1b1b1b;
+border:1px solid gold;
+padding:20px;
+border-radius:15px;
+margin-top:25px;
+line-height:1.8;
+}
+
+.notice h3{
+color:gold;
+margin-bottom:10px;
+}
+
+.success{
+display:none;
+background:#0f5132;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+font-size:18px;
+}
+
+.language-box{
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+}
+
+.language-box select{
+width:250px;
+background:#fff;
+}
+
+.call-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#00cc66;
+color:#fff;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+font-size:20px;
+z-index:999;
+}
+
+.ai-box{
+position:fixed;
+left:20px;
+bottom:20px;
+background:gold;
+color:#000;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+z-index:999;
+}
+
+.required{
+color:red;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>SAKURA RECOVERY & REPAIR</h1>
+
+<div class="language-box">
+<select id="language">
+<option value="English">English</option>
+<option value="Japanese">日本語</option>
+<option value="Arabic">العربية</option>
+<option value="Roman Urdu">Roman Urdu</option>
+</select>
+</div>
+
+<form id="recoveryForm">
+
+<h2 class="section-title">1. Customer Information</h2>
+
+<div class="grid">
+
+<div>
+<label>Full Name <span class="required">*</span></label>
+<input type="text" name="customer_name" required>
+</div>
+
+<div>
+<label>Phone Number <span class="required">*</span></label>
+<input type="text" name="phone" required>
+</div>
+
+</div>
+
+<div style="margin-top:20px;">
+<label>Customer Full Address <span class="required">*</span></label>
+<textarea name="customer_full_address" required></textarea>
+</div>
+
+<div class="grid" style="margin-top:20px;">
+
+<div>
+<label>Email</label>
+<input type="email" name="email">
+</div>
+
+<div>
+<label>Preferred Contact</label>
+<select name="contact_method">
+<option value="Phone">Phone</option>
+<option value="WhatsApp">WhatsApp</option>
+<option value="LINE">LINE</option>
+<option value="Email">Email</option>
+</select>
+</div>
+
+</div>
+
+<h2 class="section-title">2. Vehicle Details</h2>
+
+<div class="grid">
+
+<div>
+<label>Vehicle Type</label>
+<select name="vehicle_type">
+<option value="Car">Car</option>
+<option value="Truck">Truck</option>
+<option value="Van">Van</option>
+<option value="Bus">Bus</option>
+<option value="Dump">Dump</option>
+</select>
+</div>
+
+<div>
+<label>Vehicle Name <span class="required">*</span></label>
+<input type="text" name="vehicle_name" required>
+</div>
+
+<div>
+<label>Maker</label>
+<input type="text" name="maker">
+</div>
+
+<div>
+<label>Year</label>
+<input type="text" name="year">
+</div>
+
+</div>
+
+<div style="margin-top:20px;">
+<label>VIN or Plate Number</label>
+<input type="text" name="vin_plate">
+</div>
+
+<div style="margin-top:20px;">
+<label>Vehicle Condition</label>
+<select name="running_condition">
+<option value="Running">Running</option>
+<option value="Not Running">Not Running</option>
+</select>
+</div>
+
+<h2 class="section-title">3. Problem Details</h2>
+
+<div>
+<label>Vehicle Problem</label>
+<select name="vehicle_problem">
+<option value="Engine not starting">Engine not starting</option>
+<option value="Battery dead">Battery dead</option>
+<option value="Tire problem">Tire problem</option>
+<option value="Oil leaking">Oil leaking</option>
+<option value="Brake problem">Brake problem</option>
+<option value="Accident / Damaged">Accident / Damaged</option>
+<option value="Port delivery">Port delivery</option>
+</select>
+</div>
+
+<div style="margin-top:20px;">
+<label>Detail Message</label>
+<textarea name="problem_detail"></textarea>
+</div>
+
+<h2 class="section-title">4. Location</h2>
+
+<div>
+<label>Vehicle Current Location <span class="required">*</span></label>
+<textarea name="vehicle_current_location" required></textarea>
+</div>
+
+<div style="margin-top:20px;">
+<label>Google Map Link</label>
+<input type="text" name="map_link">
+</div>
+
+<div style="margin-top:20px;">
+<label>Destination Port</label>
+<input type="text" name="destination_port">
+</div>
+
+<div class="notice">
+<h3>SAKURA RECOVERY RULE</h3>
+
+<p>
+Inspection fee payment is required first before Sakura Recovery staff dispatch.
+</p>
+
+<p>
+Inspection fee depends on vehicle location and distance (kilometer based).
+</p>
+
+<p>
+If customer says:
+"I will pay later"
+or
+"I will pay together with repair cost"
+then AI system will automatically explain Sakura Recovery policy:
+</p>
+
+<p>
+"Inspection fee must be paid first before inspection staff dispatch."
+</p>
+
+</div>
+
+<button type="submit">
+SEND RECOVERY REQUEST
+</button>
+
+<div class="success" id="successBox">
+Request sent successfully.
+Sakura AI staff will contact you soon.
+</div>
+
+</form>
+
+</div>
+
+<div class="ai-box">
+🤖 AI Customer Support
+</div>
+
+<a class="call-btn" href="tel:+815707207846">
+📞 Call
+</a>
+
+<script>
+
+const webhookUrl =
+"https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate";
+
+document.getElementById("recoveryForm")
+.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const form = e.target;
+
+const formData = new FormData(form);
+
+const data = {
+customer_name: formData.get("customer_name") || "",
+phone: formData.get("phone") || "",
+customer_full_address: formData.get("customer_full_address") || "",
+email: formData.get("email") || "",
+contact_method: formData.get("contact_method") || "",
+vehicle_type: formData.get("vehicle_type") || "",
+vehicle_name: formData.get("vehicle_name") || "",
+maker: formData.get("maker") || "",
+year: formData.get("year") || "",
+vin_plate: formData.get("vin_plate") || "",
+running_condition: formData.get("running_condition") || "",
+vehicle_problem: formData.get("vehicle_problem") || "",
+problem_detail: formData.get("problem_detail") || "",
+vehicle_current_location: formData.get("vehicle_current_location") || "",
+map_link: formData.get("map_link") || "",
+destination_port: formData.get("destination_port") || "",
+language: document.getElementById("language").value,
+created_at: new Date().toISOString()
+};
+
+try{
+
+await fetch(webhookUrl,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+});
+
+document.getElementById("successBox").style.display="block";
+
+form.reset();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}catch(error){
+
+alert("Connection error.");
+
+console.log(error);
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
