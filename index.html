@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sakura Recovery & Repair Service</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -16,30 +18,70 @@ font-family:Arial,sans-serif;
 body{
 background:#000;
 color:#fff;
-padding:20px;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+opacity:0.18;
+z-index:-1;
 }
 
 .container{
-max-width:900px;
-margin:auto;
-background:#111;
-padding:30px;
-border-radius:20px;
+max-width:1000px;
+margin:40px auto;
+padding:25px;
+background:rgba(0,0,0,0.88);
 border:2px solid gold;
+border-radius:25px;
+backdrop-filter:blur(6px);
 }
 
-h1{
+.logo{
 text-align:center;
+margin-bottom:20px;
+}
+
+.logo h1{
+font-size:48px;
 color:gold;
-margin-bottom:25px;
-font-size:42px;
+font-weight:900;
+}
+
+.logo p{
+color:#fff;
+font-size:18px;
+margin-top:8px;
+}
+
+.language-box{
+display:flex;
+justify-content:center;
+margin-bottom:30px;
+}
+
+.language-box select{
+width:260px;
+padding:14px;
+border-radius:40px;
+border:2px solid gold;
+background:#fff;
+font-size:16px;
+font-weight:bold;
 }
 
 .section-title{
+font-size:34px;
 color:gold;
-font-size:30px;
-margin-top:30px;
+margin-top:35px;
 margin-bottom:20px;
+font-weight:900;
 }
 
 .grid{
@@ -57,8 +99,9 @@ grid-template-columns:1fr;
 label{
 display:block;
 margin-bottom:8px;
-font-weight:bold;
+font-size:17px;
 color:gold;
+font-weight:bold;
 }
 
 input,
@@ -66,97 +109,129 @@ select,
 textarea{
 width:100%;
 padding:15px;
-border-radius:10px;
 border:none;
-background:#ddd;
+border-radius:14px;
 font-size:16px;
+background:#e7edf8;
+color:#000;
 }
 
 textarea{
-min-height:120px;
 resize:vertical;
+min-height:120px;
 }
 
-button{
+.required{
+color:red;
+}
+
+.notice-box{
+margin-top:35px;
+padding:25px;
+background:#151515;
+border:2px solid gold;
+border-radius:20px;
+line-height:1.9;
+}
+
+.notice-box h3{
+color:gold;
+font-size:26px;
+margin-bottom:15px;
+}
+
+.notice-box p{
+margin-bottom:10px;
+font-size:16px;
+}
+
+.submit-btn{
 width:100%;
-padding:18px;
+padding:20px;
 background:gold;
 color:#000;
-border:none;
-border-radius:12px;
-font-size:22px;
+font-size:24px;
 font-weight:bold;
-cursor:pointer;
-margin-top:30px;
-}
-
-button:hover{
-background:#ffdd00;
-}
-
-.notice{
-background:#1b1b1b;
-border:1px solid gold;
-padding:20px;
+border:none;
 border-radius:15px;
-margin-top:25px;
-line-height:1.8;
+margin-top:30px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.notice h3{
-color:gold;
-margin-bottom:10px;
+.submit-btn:hover{
+background:#ffdf00;
+transform:scale(1.01);
 }
 
 .success{
 display:none;
-background:#0f5132;
+margin-top:25px;
 padding:20px;
+background:#0f5132;
 border-radius:15px;
-margin-top:20px;
 font-size:18px;
-}
-
-.language-box{
-display:flex;
-justify-content:center;
-margin-bottom:20px;
-}
-
-.language-box select{
-width:250px;
-background:#fff;
+font-weight:bold;
+text-align:center;
 }
 
 .call-btn{
 position:fixed;
 right:20px;
 bottom:20px;
-background:#00cc66;
-color:#fff;
-padding:15px 20px;
+background:#00c16a;
+padding:18px 24px;
 border-radius:50px;
+color:#fff;
 font-weight:bold;
 text-decoration:none;
 font-size:20px;
 z-index:999;
+box-shadow:0 0 15px rgba(0,255,150,0.6);
 }
 
-.ai-box{
+.ai-support{
 position:fixed;
 left:20px;
 bottom:20px;
 background:gold;
-color:#000;
-padding:15px 20px;
+padding:18px 22px;
 border-radius:50px;
 font-weight:bold;
+color:#000;
 z-index:999;
+box-shadow:0 0 15px rgba(255,215,0,0.6);
 }
 
-.required{
-color:red;
+.hero{
+text-align:center;
+margin-bottom:30px;
 }
+
+.hero img{
+width:100%;
+max-height:400px;
+object-fit:cover;
+border-radius:25px;
+border:2px solid gold;
+}
+
+.hero-text{
+margin-top:20px;
+}
+
+.hero-text h2{
+font-size:42px;
+color:gold;
+font-weight:900;
+}
+
+.hero-text p{
+font-size:18px;
+margin-top:10px;
+line-height:1.7;
+}
+
 </style>
 </head>
 
@@ -164,15 +239,36 @@ color:red;
 
 <div class="container">
 
-<h1>SAKURA RECOVERY & REPAIR</h1>
+<div class="logo">
+<h1>🌸 SAKURA RECOVERY</h1>
+<p>Recovery • Inspection • Repair • Port Delivery</p>
+</div>
+
+<div class="hero">
+
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600&auto=format&fit=crop">
+
+<div class="hero-text">
+<h2>24 Hours Vehicle Recovery Support</h2>
+<p>
+Sakura Recovery & Repair Service supports Okinawa vehicle recovery,
+inspection, towing, repair and port transportation services.
+</p>
+</div>
+
+</div>
 
 <div class="language-box">
+
 <select id="language">
+
 <option value="English">English</option>
 <option value="Japanese">日本語</option>
 <option value="Arabic">العربية</option>
 <option value="Roman Urdu">Roman Urdu</option>
+
 </select>
+
 </div>
 
 <form id="recoveryForm">
@@ -194,8 +290,11 @@ color:red;
 </div>
 
 <div style="margin-top:20px;">
+
 <label>Customer Full Address <span class="required">*</span></label>
+
 <textarea name="customer_full_address" required></textarea>
+
 </div>
 
 <div class="grid" style="margin-top:20px;">
@@ -206,13 +305,18 @@ color:red;
 </div>
 
 <div>
+
 <label>Preferred Contact</label>
+
 <select name="contact_method">
+
 <option value="Phone">Phone</option>
 <option value="WhatsApp">WhatsApp</option>
 <option value="LINE">LINE</option>
 <option value="Email">Email</option>
+
 </select>
+
 </div>
 
 </div>
@@ -222,14 +326,19 @@ color:red;
 <div class="grid">
 
 <div>
+
 <label>Vehicle Type</label>
+
 <select name="vehicle_type">
+
 <option value="Car">Car</option>
 <option value="Truck">Truck</option>
 <option value="Van">Van</option>
 <option value="Bus">Bus</option>
 <option value="Dump">Dump</option>
+
 </select>
+
 </div>
 
 <div>
@@ -250,23 +359,34 @@ color:red;
 </div>
 
 <div style="margin-top:20px;">
+
 <label>VIN or Plate Number</label>
+
 <input type="text" name="vin_plate">
+
 </div>
 
 <div style="margin-top:20px;">
-<label>Vehicle Condition</label>
+
+<label>Running Condition</label>
+
 <select name="running_condition">
+
 <option value="Running">Running</option>
 <option value="Not Running">Not Running</option>
+
 </select>
+
 </div>
 
 <h2 class="section-title">3. Problem Details</h2>
 
 <div>
+
 <label>Vehicle Problem</label>
+
 <select name="vehicle_problem">
+
 <option value="Engine not starting">Engine not starting</option>
 <option value="Battery dead">Battery dead</option>
 <option value="Tire problem">Tire problem</option>
@@ -274,74 +394,105 @@ color:red;
 <option value="Brake problem">Brake problem</option>
 <option value="Accident / Damaged">Accident / Damaged</option>
 <option value="Port delivery">Port delivery</option>
+
 </select>
+
 </div>
 
 <div style="margin-top:20px;">
+
 <label>Detail Message</label>
+
 <textarea name="problem_detail"></textarea>
+
 </div>
 
 <h2 class="section-title">4. Location</h2>
 
 <div>
+
 <label>Vehicle Current Location <span class="required">*</span></label>
+
 <textarea name="vehicle_current_location" required></textarea>
+
 </div>
 
 <div style="margin-top:20px;">
+
 <label>Google Map Link</label>
+
 <input type="text" name="map_link">
+
 </div>
 
 <div style="margin-top:20px;">
+
 <label>Destination Port</label>
+
 <input type="text" name="destination_port">
+
 </div>
 
-<div class="notice">
-<h3>SAKURA RECOVERY RULE</h3>
+<div class="notice-box">
+
+<h3>🌸 Sakura Recovery Important Rule</h3>
 
 <p>
 Inspection fee payment is required first before Sakura Recovery staff dispatch.
 </p>
 
 <p>
-Inspection fee depends on vehicle location and distance (kilometer based).
+Inspection fee depends on customer location and kilometer distance.
 </p>
 
 <p>
 If customer says:
-"I will pay later"
-or
-"I will pay together with repair cost"
-then AI system will automatically explain Sakura Recovery policy:
 </p>
 
 <p>
-"Inspection fee must be paid first before inspection staff dispatch."
+“I will pay later”
+</p>
+
+<p>
+or
+</p>
+
+<p>
+“I will pay together with repair cost”
+</p>
+
+<p>
+Then Sakura AI will automatically explain:
+</p>
+
+<p>
+“Inspection fee must be paid first before inspection staff dispatch.”
 </p>
 
 </div>
 
-<button type="submit">
+<button class="submit-btn" type="submit">
+
 SEND RECOVERY REQUEST
+
 </button>
 
 <div class="success" id="successBox">
-Request sent successfully.
+
+Request sent successfully.<br>
 Sakura AI staff will contact you soon.
+
 </div>
 
 </form>
 
 </div>
 
-<div class="ai-box">
+<div class="ai-support">
 🤖 AI Customer Support
 </div>
 
-<a class="call-btn" href="tel:+815707207846">
+<a href="tel:+815707207846" class="call-btn">
 📞 Call
 </a>
 
@@ -350,49 +501,89 @@ Sakura AI staff will contact you soon.
 const webhookUrl =
 "https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate";
 
-document.getElementById("recoveryForm")
+document
+.getElementById("recoveryForm")
 .addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-const form = e.target;
-
-const formData = new FormData(form);
+const formData = new FormData(this);
 
 const data = {
-customer_name: formData.get("customer_name") || "",
-phone: formData.get("phone") || "",
-customer_full_address: formData.get("customer_full_address") || "",
-email: formData.get("email") || "",
-contact_method: formData.get("contact_method") || "",
-vehicle_type: formData.get("vehicle_type") || "",
-vehicle_name: formData.get("vehicle_name") || "",
-maker: formData.get("maker") || "",
-year: formData.get("year") || "",
-vin_plate: formData.get("vin_plate") || "",
-running_condition: formData.get("running_condition") || "",
-vehicle_problem: formData.get("vehicle_problem") || "",
-problem_detail: formData.get("problem_detail") || "",
-vehicle_current_location: formData.get("vehicle_current_location") || "",
-map_link: formData.get("map_link") || "",
-destination_port: formData.get("destination_port") || "",
-language: document.getElementById("language").value,
-created_at: new Date().toISOString()
+
+customer_name:
+formData.get("customer_name") || "",
+
+phone:
+formData.get("phone") || "",
+
+customer_full_address:
+formData.get("customer_full_address") || "",
+
+email:
+formData.get("email") || "",
+
+contact_method:
+formData.get("contact_method") || "",
+
+vehicle_type:
+formData.get("vehicle_type") || "",
+
+vehicle_name:
+formData.get("vehicle_name") || "",
+
+maker:
+formData.get("maker") || "",
+
+year:
+formData.get("year") || "",
+
+vin_plate:
+formData.get("vin_plate") || "",
+
+running_condition:
+formData.get("running_condition") || "",
+
+vehicle_problem:
+formData.get("vehicle_problem") || "",
+
+problem_detail:
+formData.get("problem_detail") || "",
+
+vehicle_current_location:
+formData.get("vehicle_current_location") || "",
+
+map_link:
+formData.get("map_link") || "",
+
+destination_port:
+formData.get("destination_port") || "",
+
+language:
+document.getElementById("language").value,
+
+created_at:
+new Date().toISOString()
+
 };
 
 try{
 
 await fetch(webhookUrl,{
+
 method:"POST",
+
 headers:{
 "Content-Type":"application/json"
 },
+
 body:JSON.stringify(data)
+
 });
 
 document.getElementById("successBox").style.display="block";
 
-form.reset();
+this.reset();
 
 window.scrollTo({
 top:0,
@@ -401,7 +592,7 @@ behavior:"smooth"
 
 }catch(error){
 
-alert("Connection error.");
+alert("Connection Error");
 
 console.log(error);
 
