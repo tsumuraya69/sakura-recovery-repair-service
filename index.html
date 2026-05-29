@@ -59,9 +59,31 @@ footer{background:#000;text-align:center;padding:30px;color:#aaa}
 .ai-lang-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 .ai-small{font-size:12px;color:#555;margin-top:5px}
 .ai-pay{display:block;margin-top:8px;background:#19c463;color:white!important;text-decoration:none;padding:10px;border-radius:10px;font-weight:bold;text-align:center}
+
+.payment-policy-box{background:#241b00!important;border:2px solid #ffd000!important;color:#fff!important}
+.payment-title{color:#ffd000!important;font-size:28px!important;text-align:center!important;margin-bottom:20px!important}
+.payment-options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0 22px}
+.payment-card-option{background:#111!important;border:2px solid #ffd000!important;border-radius:16px!important;padding:18px!important;color:#fff!important;display:flex!important;align-items:center!important;gap:12px!important;cursor:pointer!important;font-weight:bold!important;margin:0!important}
+.payment-card-option input{width:auto!important;margin:0!important;transform:scale(1.35);accent-color:#ffd000}
+.payment-card-option span{color:#fff!important;font-size:17px!important}
+.inspection-rule-box{background:#111!important;border:2px solid #ffd000!important;border-radius:18px!important;padding:22px!important;color:#fff!important;line-height:1.85!important}
+.inspection-rule-box h4{color:#ffd000!important;font-size:22px!important;margin-bottom:15px!important}
+.inspection-rule-box p{color:#fff!important;margin:8px 0!important}
+.customer-says-box{background:#1c1c1c!important;border-radius:14px!important;padding:16px!important;margin:18px 0!important;color:#fff!important}
+.payment-warning-box{background:#4a0000!important;border:2px solid #ff4d4d!important;color:#fff!important;border-radius:14px!important;padding:16px!important;font-size:18px!important;font-weight:bold!important;margin:18px 0!important}
+.payment-supported-box{background:#0b3218!important;border:2px solid #00cc66!important;color:#fff!important;border-radius:14px!important;padding:16px!important;font-weight:bold!important;margin-top:18px!important}
+@media(max-width:700px){.payment-options{grid-template-columns:1fr}.payment-title{font-size:24px!important}.inspection-rule-box{padding:16px!important}}
 @media(max-width:700px){.ai-box{left:10px;right:10px;bottom:78px;width:auto}.ai-btn{left:12px;bottom:14px;padding:13px 18px}}
 
 @media(max-width:700px){.lang-wrap{top:8px;width:94%;justify-content:center;border-radius:16px}.lang-select{min-width:170px;font-size:14px}h1{font-size:32px}.hero p{font-size:17px}.grid2{grid-template-columns:1fr}.section h2{font-size:30px}.phone{font-size:28px}}
+
+.pay-action-wrap{margin:22px 0;text-align:center}
+.pay-now-btn{display:block;width:100%;max-width:620px;margin:18px auto 10px;background:linear-gradient(135deg,#16c65f,#0a9f49);color:#fff!important;text-decoration:none;border:3px solid #fff;border-radius:20px;padding:22px 28px;font-size:28px;font-weight:900;box-shadow:0 10px 28px rgba(0,0,0,.45),0 0 20px rgba(22,198,95,.35);transition:.2s}
+.pay-now-btn:hover{transform:translateY(-2px) scale(1.01);filter:brightness(1.08)}
+.pay-card-note{font-size:16px;line-height:1.7;color:#fff;background:#082916;border:1px solid #00cc66;border-radius:14px;padding:14px;margin:12px auto;max-width:620px}
+.ai-welcome-message{background:linear-gradient(135deg,#111,#1e1e1e);border:2px solid #ffd000;border-radius:18px;padding:18px;margin:18px 0;color:#fff;line-height:1.75;font-size:16px}
+.ai-welcome-message b{color:#ffd000}
+
 </style>
 </head>
 <body>
@@ -160,7 +182,62 @@ footer{background:#000;text-align:center;padding:30px;color:#aaa}
 <label>Google Map Link</label><input type="text" name="map_link">
 <label data-t="destination"></label><input type="text" name="destination_port" placeholder="Naha Port, Nakagusuku Port...">
 
-<div class="notice"><h3>💳 Payment Policy</h3><p data-t="payment1"></p></div>
+
+<div class="notice payment-policy-box">
+<h3 class="payment-title">💳 Payment Policy</h3>
+
+<div class="ai-welcome-message">
+🌸 <b>Welcome to Sakura Recovery Service.</b><br><br>
+It will be our pleasure to assist you today.<br><br>
+Our AI assistant will guide you through the recovery, inspection, repair support, and port delivery process.<br><br>
+After the customer request is confirmed, the first payment must be received and confirmed before Sakura Recovery starts vehicle inspection or staff dispatch.
+</div>
+
+<div class="payment-options">
+<label class="payment-card-option">
+<input type="checkbox" name="payment_method" value="VISA / MASTER CARD / DEBIT CARD">
+<span>💳 VISA / MASTER CARD / DEBIT CARD</span>
+</label>
+
+<label class="payment-card-option">
+<input type="checkbox" name="payment_method" value="PayPay">
+<span>📱 PayPay</span>
+</label>
+</div>
+
+<div class="inspection-rule-box">
+<h4>🚗 Sakura Recovery Inspection Rule</h4>
+<p>• Vehicle inspection fee depends on kilometer distance.</p>
+<p>• Customer must complete the inspection payment first.</p>
+<p>• After payment confirmation, Sakura staff will dispatch for inspection.</p>
+
+<div class="pay-action-wrap">
+<a class="pay-now-btn" href="https://buy.stripe.com/14A9AM4TQfya1ke82t9MY00" target="_blank" rel="noopener">
+💳 Pay Now
+</a>
+<div class="pay-card-note">
+✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, and Google Pay.<br>
+Inspection dispatch starts only after payment confirmation.
+</div>
+</div>
+
+<div class="customer-says-box">
+<strong>If customer says:</strong><br>
+“Later payment”<br>
+“Repair ke saath payment”<br>
+“After inspection payment”
+</div>
+
+<div class="payment-warning-box">⚠ Inspection payment first required before staff dispatch.</div>
+
+<div class="payment-supported-box">
+✅ Supported Payment Methods:<br>
+💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>
+📱 PayPay
+</div>
+</div>
+</div>
+
 <button type="submit" data-t="submitBtn"></button>
 </form>
 </section>
@@ -426,6 +503,7 @@ const form=e.target;
 const data=Object.fromEntries(new FormData(form).entries());
 data.created_at=new Date().toISOString();
 data.language=currentLang;
+data.payment_method=Array.from(document.querySelectorAll('input[name="payment_method"]:checked')).map(x=>x.value).join(", ");
 
 try{
 await fetch("https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate",{
@@ -444,16 +522,16 @@ document.getElementById("successPopup").style.display="flex";
 
 
 /* Sakura Recovery AI Bot: multi-language, distance estimate, card payment guidance, voice input */
-const CARD_PAYMENT_URL="#"; // Replace with your Stripe / Square / card payment link
+const CARD_PAYMENT_URL="https://buy.stripe.com/14A9AM4TQfya1ke82t9MY00"; // Replace with your Stripe / Square / card payment link
 const COMPANY_ADDRESS="〒901-2416 沖縄県中頭郡中城村和宇慶620-1 Sakura Recovery Repair Service";
 const BASE_KM=3;
 const BASE_PRICE=2000;
 let lastEstimate=null;
 
 const AI_TEXT={
-ja:{head:"Sakura Recovery AI — お客様サポート",welcome:"ようこそ。車両確認・修理・回収・港搬送について相談できます。3kmまで車両確認料金は2,000円です。",select:"ご希望の内容を選んでください。",check:"車両確認ですね。車両の現在地をフォームの『車両の現在地』に入力してください。距離を確認して料金をご案内します。",distanceAsk:"Google Mapsで距離を確認後、例: 4.5km と入力してください。",priceIntro:"車両確認料金は3kmごとに2,000円です。",agree:"内容に同意いただける場合は、先にデビットカードまたはクレジットカードでお支払いください。お支払い確認後、車両確認を開始します。",notmove:"車が動かない場合は現在地・車両名・症状をフォームへ入力してください。",repair:"修理相談は車両名・年式・症状を教えてください。",port:"港搬送は現在地と搬送先の港名を入力してください。",formGo:"見積りフォームへ進む",map:"Google Mapsで距離確認",pay:"カードで支払う",voice:"音声入力できます。"},
-en:{head:"Sakura Recovery AI — Customer Support",welcome:"Welcome. I can help with vehicle inspection, repair, recovery and port delivery. Vehicle inspection charge is ¥2,000 up to 3 km.",select:"Please choose what you need.",check:"Vehicle inspection request noted. Please enter the vehicle current location in the form. I will guide the distance rate.",distanceAsk:"After checking Google Maps distance, type like: 4.5km.",priceIntro:"Vehicle inspection fee is ¥2,000 per 3 km.",agree:"If you agree, first payment is required by debit card or credit card. After payment confirmation, vehicle inspection starts.",notmove:"If the vehicle cannot move, enter location, vehicle name and problem details in the form.",repair:"For repair, tell us vehicle name, year and symptoms.",port:"For port delivery, enter current location and destination port.",formGo:"Go to Estimate Form",map:"Check distance on Google Maps",pay:"Pay by Card",voice:"Voice message/input is available."},
-ur:{head:"Sakura Recovery AI — Customer Support",welcome:"Sakura Recovery AI me khush amdeed. Vehicle check, repair, recovery aur port delivery ke liye help milegi. 3km tak vehicle check charge ¥2,000 hai.",select:"Kiya service chahiye?",check:"Vehicle check request ok. Form me Vehicle Current Location fill karein. Phir distance rate bata dunga.",distanceAsk:"Google Maps me distance check kar ke is tarah type karein: 4.5km.",priceIntro:"Vehicle check fee har 3km par ¥2,000 hai.",agree:"Agar aap agree hain to pehle debit card ya credit card se payment zaroori hai. Payment confirm hone ke baad vehicle check start hoga.",notmove:"Agar vehicle move nahi ho rahi, location, vehicle name aur problem form me fill karein.",repair:"Repair ke liye vehicle name, year aur symptoms batayein.",port:"Port delivery ke liye current location aur destination port name likhein.",formGo:"Estimate Form par jayein",map:"Google Maps par distance check",pay:"Card se Payment",voice:"Voice message/input available hai."},
+ja:{head:"Sakura Recovery AI — お客様サポート",welcome:"Sakura Recovery Serviceへようこそ。お客様のお力になれることを心より嬉しく思います。ご依頼内容の確認後、初回お支払いの確認が完了してから車両点検を開始いたします。3kmまで車両確認料金は2,000円です。",select:"ご希望の内容を選んでください。",check:"車両確認ですね。車両の現在地をフォームの『車両の現在地』に入力してください。距離を確認して料金をご案内します。",distanceAsk:"Google Mapsで距離を確認後、例: 4.5km と入力してください。",priceIntro:"車両確認料金は3kmごとに2,000円です。",agree:"内容に同意いただける場合は、先にデビットカードまたはクレジットカードでお支払いください。お支払い確認後、車両確認を開始します。",notmove:"車が動かない場合は現在地・車両名・症状をフォームへ入力してください。",repair:"修理相談は車両名・年式・症状を教えてください。",port:"港搬送は現在地と搬送先の港名を入力してください。",formGo:"見積りフォームへ進む",map:"Google Mapsで距離確認",pay:"カードで支払う",voice:"音声入力できます。"},
+en:{head:"Sakura Recovery AI — Customer Support",welcome:"Welcome to Sakura Recovery Service. It will be our pleasure to assist you today. After your request is confirmed, the first payment must be received and confirmed before vehicle inspection starts. Vehicle inspection charge is ¥2,000 up to 3 km.",select:"Please choose what you need.",check:"Vehicle inspection request noted. Please enter the vehicle current location in the form. I will guide the distance rate.",distanceAsk:"After checking Google Maps distance, type like: 4.5km.",priceIntro:"Vehicle inspection fee is ¥2,000 per 3 km.",agree:"If you agree, first payment is required by debit card or credit card. After payment confirmation, vehicle inspection starts.",notmove:"If the vehicle cannot move, enter location, vehicle name and problem details in the form.",repair:"For repair, tell us vehicle name, year and symptoms.",port:"For port delivery, enter current location and destination port.",formGo:"Go to Estimate Form",map:"Check distance on Google Maps",pay:"Pay by Card",voice:"Voice message/input is available."},
+ur:{head:"Sakura Recovery AI — Customer Support",welcome:"Sakura Recovery AI me khush amdeed. Sakura Recovery ko khushi hogi ke aap ki madad kare. Deal confirm hone ke baad first payment receive aur confirm hoga, phir vehicle inspection start ki jayegi. 3km tak vehicle check charge ¥2,000 hai.",select:"Kiya service chahiye?",check:"Vehicle check request ok. Form me Vehicle Current Location fill karein. Phir distance rate bata dunga.",distanceAsk:"Google Maps me distance check kar ke is tarah type karein: 4.5km.",priceIntro:"Vehicle check fee har 3km par ¥2,000 hai.",agree:"Agar aap agree hain to pehle debit card ya credit card se payment zaroori hai. Payment confirm hone ke baad vehicle check start hoga.",notmove:"Agar vehicle move nahi ho rahi, location, vehicle name aur problem form me fill karein.",repair:"Repair ke liye vehicle name, year aur symptoms batayein.",port:"Port delivery ke liye current location aur destination port name likhein.",formGo:"Estimate Form par jayein",map:"Google Maps par distance check",pay:"Card se Payment",voice:"Voice message/input available hai."},
 zh:{head:"Sakura Recovery AI — 客户支持",welcome:"欢迎咨询车辆检查、维修、救援和港口运输。3公里内车辆检查费为2,000日元。",select:"请选择需要的服务。",check:"车辆检查申请已收到。请在表格中填写车辆当前位置，我会说明距离费用。",distanceAsk:"请在 Google Maps 确认距离后输入，例如: 4.5km。",priceIntro:"车辆检查费用为每3公里2,000日元。",agree:"如果同意，请先使用借记卡或信用卡付款。确认付款后开始车辆检查。",notmove:"如果车辆无法移动，请填写位置、车辆名称和问题。",repair:"维修请填写车辆名称、年份和症状。",port:"港口运输请填写当前位置和目的港。",formGo:"前往报价表",map:"用 Google Maps 查看距离",pay:"银行卡支付",voice:"可使用语音输入。"},
 es:{head:"Sakura Recovery AI — Atención al cliente",welcome:"Puedo ayudar con inspección, reparación, recuperación y entrega al puerto. La inspección cuesta ¥2,000 hasta 3 km.",select:"Elija el servicio.",check:"Solicitud de inspección recibida. Ingrese la ubicación actual del vehículo en el formulario.",distanceAsk:"Después de verificar en Google Maps, escriba por ejemplo: 4.5km.",priceIntro:"La tarifa de inspección es ¥2,000 por cada 3 km.",agree:"Si acepta, primero pague con tarjeta de débito o crédito. Después del pago comenzará la inspección.",notmove:"Si el vehículo no se mueve, ingrese ubicación, vehículo y problema.",repair:"Para reparación, indique vehículo, año y síntomas.",port:"Para puerto, ingrese ubicación actual y puerto de destino.",formGo:"Ir al formulario",map:"Ver distancia en Google Maps",pay:"Pagar con tarjeta",voice:"Entrada por voz disponible."},
 ru:{head:"Sakura Recovery AI — Поддержка",welcome:"Я помогу с осмотром, ремонтом, эвакуацией и доставкой в порт. Осмотр до 3 км стоит ¥2,000.",select:"Выберите услугу.",check:"Заявка на осмотр принята. Укажите местоположение автомобиля в форме.",distanceAsk:"Проверьте расстояние в Google Maps и введите, например: 4.5km.",priceIntro:"Осмотр: ¥2,000 за каждые 3 км.",agree:"Если согласны, сначала оплатите дебетовой или кредитной картой. После оплаты начнется осмотр.",notmove:"Если авто не движется, укажите место, модель и проблему.",repair:"Для ремонта укажите модель, год и симптомы.",port:"Для порта укажите текущее место и порт назначения.",formGo:"Перейти к форме",map:"Проверить в Google Maps",pay:"Оплатить картой",voice:"Доступен голосовой ввод."},
