@@ -719,7 +719,19 @@ function closeTerms(){
 async 
 function aiPack(){return AI_TEXT[currentLang]||AI_TEXT.en;}
 function updateAIHead(){const h=document.getElementById("aiHead");if(h)h.innerHTML=aiPack().head;}
-function toggleAI(){const box=document.getElementById("aiBox"),body=document.getElementById("aiBody");box.style.display=box.style.display==="block"?"none":"block";updateAIHead();if(!body.dataset.started)startAI();}
+function toggleAI(){
+
+const box=document.getElementById("aiBox"),
+body=document.getElementById("aiBody");
+
+if(body.innerHTML.trim()===""){
+startAI();
+}
+
+box.style.display=
+box.style.display==="flex" ? "none" : "flex";
+
+}
 function aiMsg(text,type="bot",speak=false){const body=document.getElementById("aiBody"),div=document.createElement("div");div.className="ai-msg "+(type==="user"?"ai-user":"ai-bot");div.innerHTML=text;body.appendChild(div);body.scrollTop=body.scrollHeight;if(speak) speakAI(div.innerText);}
 function startAI(){document.getElementById("aiBody").dataset.started="yes";aiMsg(aiPack().welcome+"<div class='ai-small'>"+aiPack().voice+"</div>","bot",true);aiMsg(`<div class="ai-lang-row"><div class="ai-quick" onclick="setAILang('ja')">日本語</div><div class="ai-quick" onclick="setAILang('en')">English</div><div class="ai-quick" onclick="setAILang('zh')">中文</div><div class="ai-quick" onclick="setAILang('es')">Español</div><div class="ai-quick" onclick="setAILang('ru')">Русский</div><div class="ai-quick" onclick="setAILang('vi')">Tiếng Việt</div><div class="ai-quick" onclick="setAILang('ko')">한국어</div><div class="ai-quick" onclick="setAILang('ar')">العربية</div><div class="ai-quick" onclick="setAILang('ur')">Roman Urdu</div><div class="ai-quick" onclick="setAILang('bn')">বাংলা</div><div class="ai-quick" onclick="setAILang('fa')">فارسی</div><div class="ai-quick" onclick="setAILang('tr')">Türkçe</div><div class="ai-quick" onclick="setAILang('si')">සිංහල</div></div>`);showAIOptions();}
 function setAILang(lang){document.getElementById("siteLang").value=lang;changeLang(lang);updateAIHead();aiMsg(lang,"user");aiMsg(aiPack().welcome,"bot",true);showAIOptions();}
