@@ -248,40 +248,50 @@ footer{background:#000;text-align:center;padding:30px;color:#aaa}
 </div>
 
 
+
 <div class="notice payment-policy-box" id="creditCardSection">
-<h3 class="payment-title" data-t="paymentPolicyTitle"></h3>
+<h3 class="payment-title" data-t="paymentPolicyTitle">💳 Payment Policy</h3>
 
 <div class="ai-welcome-message">
-<p data-t="paymentWelcome"></p>
+<p data-t="paymentWelcome">🌸 <b>Welcome to Sakura Recovery Service.</b><br><br>It will be our pleasure to assist you today.<br><br>Our AI assistant will guide you through recovery, inspection, repair support, and port delivery process.<br><br>Sakura Recovery AI will calculate the inspection charge from Sakura Recovery company location to the customer vehicle location. When the customer presses SEND REQUEST, the request will be sent to Sakura Recovery staff. Staff will review the vehicle location and contact the customer with the inspection payment details.</p>
 </div>
 
 <div class="payment-options">
 <label class="payment-card-option">
 <input type="checkbox" name="payment_method" value="VISA / MASTER CARD / DEBIT CARD">
-<span data-t="paymentCardOption"></span>
+<span data-t="paymentCardOption">💳 VISA / MASTER CARD / DEBIT CARD</span>
 </label>
 
 <label class="payment-card-option">
 <input type="checkbox" name="payment_method" value="PayPay">
-<span data-t="paymentPayPayOption"></span>
+<span data-t="paymentPayPayOption">📱 PayPay</span>
 </label>
 </div>
 
 <div class="inspection-rule-box">
-<h4 data-t="inspectionRuleTitle"></h4>
-<p data-t="inspectionRule1"></p>
-<p data-t="inspectionRule2"></p>
-<p data-t="inspectionRule3"></p>
+<h4 data-t="inspectionRuleTitle">🚗 Sakura Recovery Inspection Rule</h4>
+<p data-t="inspectionRule1">• Vehicle inspection fee depends on kilometer distance.</p>
+<p data-t="inspectionRule2">• Customer must complete the inspection payment first.</p>
+<p data-t="inspectionRule3">• After payment confirmation, Sakura staff will dispatch for inspection.</p>
 
 <div class="pay-action-wrap">
-<div class="pay-card-note" data-t="acceptedCardsNote"></div>
+<div class="pay-card-note" data-t="acceptedCardsNote">✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>After accepting Terms & Conditions, the request is sent to Sakura Recovery staff. Staff will confirm the inspection fee and payment details before dispatch.</div>
 </div>
 
-<div class="customer-says-box" data-t="customerSaysBox"></div>
+<div class="customer-says-box" data-t="customerSaysBox">
+<strong>If customer says:</strong><br>
+“Later payment”<br>
+“Pay together with repair”<br>
+“Payment after inspection”
+</div>
 
-<div class="payment-warning-box" data-t="paymentWarning"></div>
+<div class="payment-warning-box" data-t="paymentWarning">⚠ Inspection payment is required before staff dispatch.</div>
 
-<div class="payment-supported-box" data-t="supportedPaymentMethods"></div>
+<div class="payment-supported-box" data-t="supportedPaymentMethods">
+✅ Supported Payment Methods:<br>
+💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>
+📱 PayPay
+</div>
 </div>
 </div>
 
@@ -296,10 +306,10 @@ footer{background:#000;text-align:center;padding:30px;color:#aaa}
 <p>〒901-2416<br>沖縄県中頭郡中城村和宇慶620−1</p>
 <p data-t="hoursFull"></p>
 <div class="qr-box">
-<h3 id="qrTitle"></h3>
-<img id="qrImage" src="" alt="QR Code">
+<h3 id="qrTitle">LINEで相談する</h3>
+<img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fline.me%2FR%2Fti%2Fp%2F%40sakura_recovery" alt="QR Code">
 <br>
-<a id="qrLink" href="#" target="_blank"></a>
+<a id="qrLink" href="https://line.me/R/ti/p/@sakura_recovery" target="_blank">LINEを開く</a>
 </div>
 </div>
 </section>
@@ -365,91 +375,196 @@ const LINE_QR="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+e
 const WHATSAPP_QR="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+encodeURIComponent(WHATSAPP_URL);
 
 
-const PAYMENT_I18N = {
+
+const SAKURA_PAYMENT_TEXT = {
   ja: {
-    acceptedCardsNote: "✅ 対応カード: Visa、Mastercard、Debit Card、Apple Pay、Google Pay。<br>SEND REQUESTを押すと、依頼内容がSakura Recoveryスタッフへ送信されます。スタッフが点検料金とお支払い方法を確認してご案内します。",
-    customerSaysBox: "<strong>お客様が以下のように言った場合:</strong><br>「後で支払います」<br>「修理代と一緒に支払います」<br>「点検後に支払います」",
-    paymentWarning: "⚠ スタッフ派遣前に点検料金のお支払いが必要です。",
-    supportedPaymentMethods: "✅ 対応お支払い方法:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 お支払いポリシー",
+    paymentWelcome:"🌸 <b>Sakura Recovery Serviceへようこそ。</b><br><br>本日はお問い合わせありがとうございます。AIアシスタントが車両回収、点検、修理サポート、港搬送についてご案内いたします。<br><br>Sakura Recovery AIは会社所在地からお客様の車両所在地までの距離をもとに点検料金を計算します。SEND REQUESTを押すと、ご依頼内容がスタッフへ送信されます。スタッフが車両所在地を確認し、点検料金とお支払い方法をご案内いたします。",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery 点検ルール",
+    inspectionRule1:"• 車両点検料金は距離（km）により変わります。",
+    inspectionRule2:"• お客様は点検料金を先にお支払いいただく必要があります。",
+    inspectionRule3:"• お支払い確認後、スタッフが点検に向かいます。",
+    acceptedCardsNote:"✅ 対応カード: Visa、Mastercard、Debit Card、Apple Pay、Google Pay。<br>利用規約に同意後、依頼内容がSakura Recoveryスタッフへ送信されます。スタッフが点検料金とお支払い方法を確認してご案内します。",
+    customerSaysBox:"<strong>お客様が以下のように言った場合:</strong><br>「後で支払います」<br>「修理代と一緒に支払います」<br>「点検後に支払います」",
+    paymentWarning:"⚠ スタッフ派遣前に点検料金のお支払いが必要です。",
+    supportedPaymentMethods:"✅ 対応お支払い方法:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   en: {
-    acceptedCardsNote: "✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST sends the request to Sakura Recovery staff. Staff will confirm the inspection fee and payment details.",
-    customerSaysBox: "<strong>If customer says:</strong><br>“Later payment”<br>“Pay together with repair”<br>“Payment after inspection”",
-    paymentWarning: "⚠ Inspection payment is required before staff dispatch.",
-    supportedPaymentMethods: "✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Payment Policy",
+    paymentWelcome:"🌸 <b>Welcome to Sakura Recovery Service.</b><br><br>It will be our pleasure to assist you today. Our AI assistant will guide you through recovery, inspection, repair support, and port delivery process.<br><br>Sakura Recovery AI will calculate the inspection charge from Sakura Recovery company location to the customer vehicle location. When the customer presses SEND REQUEST, the request will be sent to Sakura Recovery staff. Staff will review the vehicle location and contact the customer with inspection payment details.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery Inspection Rule",
+    inspectionRule1:"• Vehicle inspection fee depends on kilometer distance.",
+    inspectionRule2:"• Customer must complete the inspection payment first.",
+    inspectionRule3:"• After payment confirmation, Sakura staff will dispatch for inspection.",
+    acceptedCardsNote:"✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>After accepting Terms & Conditions, the request is sent to Sakura Recovery staff. Staff will confirm the inspection fee and payment details before dispatch.",
+    customerSaysBox:"<strong>If customer says:</strong><br>“Later payment”<br>“Pay together with repair”<br>“Payment after inspection”",
+    paymentWarning:"⚠ Inspection payment is required before staff dispatch.",
+    supportedPaymentMethods:"✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   ur: {
-    acceptedCardsNote: "✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>Terms & Conditions accept karne ke baad request Sakura Recovery staff ko send hogi. Staff inspection fee aur payment details confirm karega.",
-    customerSaysBox: "<strong>Agar customer kahe:</strong><br>“Later payment”<br>“Repair ke saath payment”<br>“Inspection ke baad payment”",
-    paymentWarning: "⚠ Staff dispatch se pehle inspection payment required hai.",
-    supportedPaymentMethods: "✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Payment Policy",
+    paymentWelcome:"🌸 <b>Sakura Recovery Service me welcome.</b><br><br>Aaj hum aap ki madad khushi se karenge. AI assistant recovery, inspection, repair support aur port delivery process guide karega.<br><br>Sakura Recovery AI company location se customer vehicle location tak distance ke hisab se inspection charge calculate karegi. SEND REQUEST dabane ke baad request Sakura Recovery staff ko send hogi. Staff vehicle location check karke customer ko inspection payment details batayega.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery Inspection Rule",
+    inspectionRule1:"• Vehicle inspection fee kilometer distance par depend karegi.",
+    inspectionRule2:"• Customer ko inspection payment pehle complete karna hoga.",
+    inspectionRule3:"• Payment confirm hone ke baad staff inspection ke liye dispatch hoga.",
+    acceptedCardsNote:"✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>Terms & Conditions accept karne ke baad request Sakura Recovery staff ko send hogi. Staff inspection fee aur payment details confirm karega.",
+    customerSaysBox:"<strong>Agar customer kahe:</strong><br>“Later payment”<br>“Repair ke saath payment”<br>“Inspection ke baad payment”",
+    paymentWarning:"⚠ Staff dispatch se pehle inspection payment required hai.",
+    supportedPaymentMethods:"✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   zh: {
-    acceptedCardsNote: "✅ 可使用的卡: Visa、Mastercard、Debit Card、Apple Pay、Google Pay。<br>SEND REQUEST 会把请求发送给 Sakura Recovery 工作人员。工作人员会确认检查费用和付款详情。",
-    customerSaysBox: "<strong>如果客户说:</strong><br>“稍后付款”<br>“和维修费一起付款”<br>“检查后付款”",
-    paymentWarning: "⚠ 工作人员派遣前必须先支付检查费用。",
-    supportedPaymentMethods: "✅ 支持的付款方式:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 付款政策",
+    paymentWelcome:"🌸 <b>欢迎使用 Sakura Recovery Service。</b><br><br>我们很高兴为您服务。AI 助手会为您说明车辆救援、检查、维修支持和港口运输流程。<br><br>Sakura Recovery AI 会根据公司所在地到客户车辆所在地的距离计算检查费用。点击 SEND REQUEST 后，请求会发送给工作人员，工作人员会确认车辆位置并联系客户说明付款详情。",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery 检查规则",
+    inspectionRule1:"• 车辆检查费用根据公里距离而定。",
+    inspectionRule2:"• 客户必须先完成检查费用付款。",
+    inspectionRule3:"• 付款确认后，工作人员将前往检查。",
+    acceptedCardsNote:"✅ 可使用的卡: Visa、Mastercard、Debit Card、Apple Pay、Google Pay。<br>同意条款后，请求会发送给 Sakura Recovery 工作人员。工作人员会确认检查费用和付款详情。",
+    customerSaysBox:"<strong>如果客户说:</strong><br>“稍后付款”<br>“和维修费一起付款”<br>“检查后付款”",
+    paymentWarning:"⚠ 工作人员派遣前必须先支付检查费用。",
+    supportedPaymentMethods:"✅ 支持的付款方式:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   es: {
-    acceptedCardsNote: "✅ Tarjetas aceptadas: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST envía la solicitud al personal de Sakura Recovery. El personal confirmará la tarifa de inspección y los detalles de pago.",
-    customerSaysBox: "<strong>Si el cliente dice:</strong><br>“Pago más tarde”<br>“Pago junto con la reparación”<br>“Pago después de la inspección”",
-    paymentWarning: "⚠ El pago de inspección es requerido antes de enviar al personal.",
-    supportedPaymentMethods: "✅ Métodos de pago aceptados:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Política de pago",
+    paymentWelcome:"🌸 <b>Bienvenido a Sakura Recovery Service.</b><br><br>Será un placer ayudarle hoy. Nuestro asistente AI le guiará con recuperación, inspección, reparación y entrega al puerto.<br><br>Sakura Recovery AI calculará el cargo de inspección según la distancia desde Sakura Recovery hasta la ubicación del vehículo. Al presionar SEND REQUEST, la solicitud se enviará al personal, quien revisará la ubicación y le contactará con los detalles de pago.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Regla de inspección Sakura Recovery",
+    inspectionRule1:"• La tarifa de inspección depende de la distancia en kilómetros.",
+    inspectionRule2:"• El cliente debe completar primero el pago de inspección.",
+    inspectionRule3:"• Después de confirmar el pago, el personal será enviado para la inspección.",
+    acceptedCardsNote:"✅ Tarjetas aceptadas: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>Después de aceptar los términos, la solicitud se enviará al personal de Sakura Recovery. El personal confirmará la tarifa de inspección y los detalles de pago.",
+    customerSaysBox:"<strong>Si el cliente dice:</strong><br>“Pago más tarde”<br>“Pago junto con la reparación”<br>“Pago después de la inspección”",
+    paymentWarning:"⚠ El pago de inspección es requerido antes de enviar al personal.",
+    supportedPaymentMethods:"✅ Métodos de pago aceptados:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   ru: {
-    acceptedCardsNote: "✅ Принимаемые карты: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST отправляет заявку сотрудникам Sakura Recovery. Сотрудники подтвердят стоимость осмотра и детали оплаты.",
-    customerSaysBox: "<strong>Если клиент говорит:</strong><br>“Оплачу позже”<br>“Оплачу вместе с ремонтом”<br>“Оплачу после осмотра”",
-    paymentWarning: "⚠ Оплата осмотра требуется до выезда сотрудника.",
-    supportedPaymentMethods: "✅ Поддерживаемые способы оплаты:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Правила оплаты",
+    paymentWelcome:"🌸 <b>Добро пожаловать в Sakura Recovery Service.</b><br><br>Мы рады помочь вам сегодня. AI помощник расскажет о эвакуации, осмотре, ремонте и доставке в порт.<br><br>Sakura Recovery AI рассчитает стоимость осмотра по расстоянию от компании до автомобиля. После нажатия SEND REQUEST заявка будет отправлена сотрудникам, они проверят местоположение и свяжутся с клиентом по оплате.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Правила осмотра Sakura Recovery",
+    inspectionRule1:"• Стоимость осмотра зависит от расстояния в километрах.",
+    inspectionRule2:"• Клиент должен сначала оплатить осмотр.",
+    inspectionRule3:"• После подтверждения оплаты сотрудник будет направлен на осмотр.",
+    acceptedCardsNote:"✅ Принимаемые карты: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>После принятия условий заявка отправляется сотрудникам Sakura Recovery. Сотрудники подтвердят стоимость осмотра и детали оплаты.",
+    customerSaysBox:"<strong>Если клиент говорит:</strong><br>“Оплачу позже”<br>“Оплачу вместе с ремонтом”<br>“Оплачу после осмотра”",
+    paymentWarning:"⚠ Оплата осмотра требуется до выезда сотрудника.",
+    supportedPaymentMethods:"✅ Поддерживаемые способы оплаты:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   vi: {
-    acceptedCardsNote: "✅ Thẻ được chấp nhận: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST sẽ gửi yêu cầu đến nhân viên Sakura Recovery. Nhân viên sẽ xác nhận phí kiểm tra và chi tiết thanh toán.",
-    customerSaysBox: "<strong>Nếu khách hàng nói:</strong><br>“Thanh toán sau”<br>“Thanh toán cùng phí sửa chữa”<br>“Thanh toán sau khi kiểm tra”",
-    paymentWarning: "⚠ Cần thanh toán phí kiểm tra trước khi nhân viên được điều động.",
-    supportedPaymentMethods: "✅ Phương thức thanh toán hỗ trợ:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Chính sách thanh toán",
+    paymentWelcome:"🌸 <b>Chào mừng đến với Sakura Recovery Service.</b><br><br>Chúng tôi rất vui được hỗ trợ quý khách hôm nay. AI sẽ hướng dẫn về cứu hộ, kiểm tra, sửa chữa và giao cảng.<br><br>Sakura Recovery AI sẽ tính phí kiểm tra theo khoảng cách từ công ty đến vị trí xe. Khi bấm SEND REQUEST, yêu cầu sẽ được gửi cho nhân viên và nhân viên sẽ liên hệ với chi tiết thanh toán.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Quy định kiểm tra Sakura Recovery",
+    inspectionRule1:"• Phí kiểm tra xe phụ thuộc vào khoảng cách km.",
+    inspectionRule2:"• Khách hàng phải thanh toán phí kiểm tra trước.",
+    inspectionRule3:"• Sau khi xác nhận thanh toán, nhân viên sẽ đến kiểm tra.",
+    acceptedCardsNote:"✅ Thẻ được chấp nhận: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>Sau khi chấp nhận điều khoản, yêu cầu sẽ được gửi đến nhân viên Sakura Recovery. Nhân viên sẽ xác nhận phí kiểm tra và chi tiết thanh toán.",
+    customerSaysBox:"<strong>Nếu khách hàng nói:</strong><br>“Thanh toán sau”<br>“Thanh toán cùng phí sửa chữa”<br>“Thanh toán sau khi kiểm tra”",
+    paymentWarning:"⚠ Cần thanh toán phí kiểm tra trước khi nhân viên được điều động.",
+    supportedPaymentMethods:"✅ Phương thức thanh toán hỗ trợ:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   ko: {
-    acceptedCardsNote: "✅ 사용 가능 카드: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST를 누르면 요청이 Sakura Recovery 직원에게 전송됩니다. 직원이 점검 비용과 결제 정보를 확인합니다.",
-    customerSaysBox: "<strong>고객이 다음과 같이 말하는 경우:</strong><br>“나중에 결제”<br>“수리비와 함께 결제”<br>“점검 후 결제”",
-    paymentWarning: "⚠ 직원 출동 전에 점검 비용 결제가 필요합니다.",
-    supportedPaymentMethods: "✅ 지원 결제 방법:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 결제 정책",
+    paymentWelcome:"🌸 <b>Sakura Recovery Service에 오신 것을 환영합니다.</b><br><br>오늘 도와드릴 수 있어 기쁩니다. AI가 차량 구조, 점검, 수리 지원, 항구 배송 절차를 안내합니다.<br><br>Sakura Recovery AI는 회사 위치에서 차량 위치까지의 거리를 기준으로 점검 비용을 계산합니다. SEND REQUEST를 누르면 요청이 직원에게 전송되고 직원이 차량 위치와 결제 정보를 확인합니다.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery 점검 규칙",
+    inspectionRule1:"• 차량 점검 비용은 km 거리에 따라 달라집니다.",
+    inspectionRule2:"• 고객은 점검 비용을 먼저 결제해야 합니다.",
+    inspectionRule3:"• 결제 확인 후 직원이 점검을 위해 출동합니다.",
+    acceptedCardsNote:"✅ 사용 가능 카드: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>약관 동의 후 요청이 Sakura Recovery 직원에게 전송됩니다. 직원이 점검 비용과 결제 정보를 확인합니다.",
+    customerSaysBox:"<strong>고객이 다음과 같이 말하는 경우:</strong><br>“나중에 결제”<br>“수리비와 함께 결제”<br>“점검 후 결제”",
+    paymentWarning:"⚠ 직원 출동 전에 점검 비용 결제가 필요합니다.",
+    supportedPaymentMethods:"✅ 지원 결제 방법:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   ar: {
-    acceptedCardsNote: "✅ البطاقات المقبولة: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>زر SEND REQUEST يرسل الطلب إلى فريق Sakura Recovery. سيؤكد الفريق رسوم الفحص وتفاصيل الدفع.",
-    customerSaysBox: "<strong>إذا قال العميل:</strong><br>“سأدفع لاحقاً”<br>“سأدفع مع تكلفة الإصلاح”<br>“سأدفع بعد الفحص”",
-    paymentWarning: "⚠ يجب دفع رسوم الفحص قبل إرسال الموظف.",
-    supportedPaymentMethods: "✅ طرق الدفع المدعومة:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 سياسة الدفع",
+    paymentWelcome:"🌸 <b>مرحباً بكم في Sakura Recovery Service.</b><br><br>يسعدنا مساعدتكم اليوم. سيوجهكم مساعد AI خلال عملية الإنقاذ والفحص والإصلاح والنقل إلى الميناء.<br><br>سيحسب Sakura Recovery AI رسوم الفحص حسب المسافة من موقع الشركة إلى موقع المركبة. عند الضغط على SEND REQUEST سيتم إرسال الطلب إلى الموظفين وسيتم التواصل مع العميل بتفاصيل الدفع.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 قواعد فحص Sakura Recovery",
+    inspectionRule1:"• تعتمد رسوم فحص المركبة على المسافة بالكيلومتر.",
+    inspectionRule2:"• يجب على العميل إكمال دفع رسوم الفحص أولاً.",
+    inspectionRule3:"• بعد تأكيد الدفع، سيتم إرسال الموظف للفحص.",
+    acceptedCardsNote:"✅ البطاقات المقبولة: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>بعد قبول الشروط، يتم إرسال الطلب إلى فريق Sakura Recovery. سيؤكد الفريق رسوم الفحص وتفاصيل الدفع.",
+    customerSaysBox:"<strong>إذا قال العميل:</strong><br>“سأدفع لاحقاً”<br>“سأدفع مع تكلفة الإصلاح”<br>“سأدفع بعد الفحص”",
+    paymentWarning:"⚠ يجب دفع رسوم الفحص قبل إرسال الموظف.",
+    supportedPaymentMethods:"✅ طرق الدفع المدعومة:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   bn: {
-    acceptedCardsNote: "✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST দিলে request Sakura Recovery staff-এর কাছে যাবে। Staff inspection fee এবং payment details confirm করবে।",
-    customerSaysBox: "<strong>Customer যদি বলে:</strong><br>“Later payment”<br>“Repair এর সাথে payment”<br>“Inspection এর পরে payment”",
-    paymentWarning: "⚠ Staff dispatch করার আগে inspection payment required.",
-    supportedPaymentMethods: "✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Payment Policy",
+    paymentWelcome:"🌸 <b>Sakura Recovery Service-এ স্বাগতম।</b><br><br>আজ আপনাকে সাহায্য করতে পেরে আমরা খুশি। AI assistant recovery, inspection, repair support এবং port delivery process guide করবে।<br><br>Sakura Recovery AI company location থেকে customer vehicle location পর্যন্ত distance অনুযায়ী inspection charge calculate করবে। SEND REQUEST দিলে request staff-এর কাছে যাবে। Staff vehicle location check করে payment details জানাবে।",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery Inspection Rule",
+    inspectionRule1:"• Vehicle inspection fee kilometer distance অনুযায়ী depend করে।",
+    inspectionRule2:"• Customer-কে inspection payment আগে complete করতে হবে।",
+    inspectionRule3:"• Payment confirm হলে Sakura staff inspection এর জন্য dispatch হবে।",
+    acceptedCardsNote:"✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>Terms & Conditions accept করার পর request Sakura Recovery staff-এর কাছে যাবে। Staff inspection fee এবং payment details confirm করবে।",
+    customerSaysBox:"<strong>Customer যদি বলে:</strong><br>“Later payment”<br>“Repair এর সাথে payment”<br>“Inspection এর পরে payment”",
+    paymentWarning:"⚠ Staff dispatch করার আগে inspection payment required.",
+    supportedPaymentMethods:"✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   fa: {
-    acceptedCardsNote: "✅ کارت‌های قابل قبول: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST درخواست را برای کارکنان Sakura Recovery ارسال می‌کند. کارکنان هزینه بررسی و جزئیات پرداخت را تأیید می‌کنند.",
-    customerSaysBox: "<strong>اگر مشتری بگوید:</strong><br>“بعداً پرداخت می‌کنم”<br>“همراه با هزینه تعمیر پرداخت می‌کنم”<br>“بعد از بررسی پرداخت می‌کنم”",
-    paymentWarning: "⚠ پرداخت هزینه بررسی قبل از اعزام کارکنان الزامی است.",
-    supportedPaymentMethods: "✅ روش‌های پرداخت پشتیبانی‌شده:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 سیاست پرداخت",
+    paymentWelcome:"🌸 <b>به Sakura Recovery Service خوش آمدید.</b><br><br>خوشحالیم امروز به شما کمک کنیم. دستیار AI شما را در روند امداد، بررسی، تعمیر و حمل به بندر راهنمایی می‌کند.<br><br>Sakura Recovery AI هزینه بررسی را بر اساس فاصله شرکت تا محل خودرو محاسبه می‌کند. پس از زدن SEND REQUEST درخواست برای کارکنان ارسال می‌شود و آن‌ها جزئیات پرداخت را اطلاع می‌دهند.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 قوانین بررسی Sakura Recovery",
+    inspectionRule1:"• هزینه بررسی خودرو بر اساس فاصله کیلومتری تعیین می‌شود.",
+    inspectionRule2:"• مشتری باید ابتدا پرداخت هزینه بررسی را کامل کند.",
+    inspectionRule3:"• پس از تأیید پرداخت، کارکنان برای بررسی اعزام می‌شوند.",
+    acceptedCardsNote:"✅ کارت‌های قابل قبول: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>پس از پذیرش شرایط، درخواست برای کارکنان Sakura Recovery ارسال می‌شود. کارکنان هزینه بررسی و جزئیات پرداخت را تأیید می‌کنند.",
+    customerSaysBox:"<strong>اگر مشتری بگوید:</strong><br>“بعداً پرداخت می‌کنم”<br>“همراه با هزینه تعمیر پرداخت می‌کنم”<br>“بعد از بررسی پرداخت می‌کنم”",
+    paymentWarning:"⚠ پرداخت هزینه بررسی قبل از اعزام کارکنان الزامی است.",
+    supportedPaymentMethods:"✅ روش‌های پرداخت پشتیبانی‌شده:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   tr: {
-    acceptedCardsNote: "✅ Kabul edilen kartlar: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST talebi Sakura Recovery ekibine gönderir. Ekip kontrol ücretini ve ödeme detaylarını onaylar.",
-    customerSaysBox: "<strong>Müşteri şunu söylerse:</strong><br>“Sonra ödeyeceğim”<br>“Tamirle birlikte ödeyeceğim”<br>“Kontrolden sonra ödeyeceğim”",
-    paymentWarning: "⚠ Personel gönderilmeden önce kontrol ödemesi gereklidir.",
-    supportedPaymentMethods: "✅ Desteklenen ödeme yöntemleri:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Ödeme Politikası",
+    paymentWelcome:"🌸 <b>Sakura Recovery Service’e hoş geldiniz.</b><br><br>Bugün size yardımcı olmaktan memnuniyet duyarız. AI asistan kurtarma, kontrol, tamir ve liman teslim sürecinde size rehberlik eder.<br><br>Sakura Recovery AI şirket konumundan müşteri aracının konumuna kadar olan mesafeye göre kontrol ücretini hesaplar. SEND REQUEST basıldığında talep ekibe gönderilir ve ekip ödeme detaylarını bildirir.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery Kontrol Kuralı",
+    inspectionRule1:"• Araç kontrol ücreti kilometre mesafesine bağlıdır.",
+    inspectionRule2:"• Müşteri önce kontrol ödemesini tamamlamalıdır.",
+    inspectionRule3:"• Ödeme onaylandıktan sonra ekip kontrol için gönderilir.",
+    acceptedCardsNote:"✅ Kabul edilen kartlar: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>Şartlar kabul edildikten sonra talep Sakura Recovery ekibine gönderilir. Ekip kontrol ücretini ve ödeme detaylarını onaylar.",
+    customerSaysBox:"<strong>Müşteri şunu söylerse:</strong><br>“Sonra ödeyeceğim”<br>“Tamirle birlikte ödeyeceğim”<br>“Kontrolden sonra ödeyeceğim”",
+    paymentWarning:"⚠ Personel gönderilmeden önce kontrol ödemesi gereklidir.",
+    supportedPaymentMethods:"✅ Desteklenen ödeme yöntemleri:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   },
   si: {
-    acceptedCardsNote: "✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>SEND REQUEST request එක Sakura Recovery staff වෙත යවයි. Staff inspection fee සහ payment details confirm කරයි.",
-    customerSaysBox: "<strong>Customer මෙහෙම කියන්නේ නම්:</strong><br>“Later payment”<br>“Repair සමඟ payment”<br>“Inspection පසුව payment”",
-    paymentWarning: "⚠ Staff dispatch කිරීමට පෙර inspection payment අවශ්‍යයි.",
-    supportedPaymentMethods: "✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
+    paymentPolicyTitle:"💳 Payment Policy",
+    paymentWelcome:"🌸 <b>Sakura Recovery Service වෙත සාදරයෙන් පිළිගනිමු.</b><br><br>අද ඔබට උදව් කිරීමට අපි සතුටුයි. AI assistant recovery, inspection, repair support සහ port delivery process guide කරයි.<br><br>Sakura Recovery AI company location සිට customer vehicle location දක්වා distance අනුව inspection charge calculate කරයි. SEND REQUEST කළ පසු request staff වෙත යයි. Staff payment details confirm කරයි.",
+    paymentCardOption:"💳 VISA / MASTER CARD / DEBIT CARD",
+    paymentPayPayOption:"📱 PayPay",
+    inspectionRuleTitle:"🚗 Sakura Recovery Inspection Rule",
+    inspectionRule1:"• Vehicle inspection fee kilometer distance මත depend වේ.",
+    inspectionRule2:"• Customer inspection payment පළමුව complete කළ යුතුයි.",
+    inspectionRule3:"• Payment confirm වූ පසු staff inspection සඳහා dispatch වේ.",
+    acceptedCardsNote:"✅ Accepted cards: Visa, Mastercard, Debit Card, Apple Pay, Google Pay.<br>Terms & Conditions accept කළ පසු request Sakura Recovery staff වෙත send වේ. Staff inspection fee සහ payment details confirm කරයි.",
+    customerSaysBox:"<strong>Customer මෙහෙම කියන්නේ නම්:</strong><br>“Later payment”<br>“Repair සමඟ payment”<br>“Inspection පසුව payment”",
+    paymentWarning:"⚠ Staff dispatch කිරීමට පෙර inspection payment අවශ්‍යයි.",
+    supportedPaymentMethods:"✅ Supported Payment Methods:<br>💳 VISA / MASTER CARD / DEBIT CARD / Apple Pay / Google Pay<br>📱 PayPay"
   }
 };
 
-function applyPaymentPolicyLanguage(lang){
-  const pack = PAYMENT_I18N[lang] || PAYMENT_I18N.en;
-  Object.keys(pack).forEach(key=>{
-    document.querySelectorAll('[data-t="'+key+'"]').forEach(el=>{
+function applySakuraPaymentText(lang){
+  const pack = SAKURA_PAYMENT_TEXT[lang] || SAKURA_PAYMENT_TEXT.en;
+  Object.keys(pack).forEach(function(key){
+    document.querySelectorAll('[data-t="'+key+'"]').forEach(function(el){
       el.innerHTML = pack[key];
     });
   });
@@ -831,6 +946,13 @@ function startVoiceInput(){const SpeechRecognition=window.SpeechRecognition||win
 if("speechSynthesis" in window){window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}
 changeLang("ja");
 updateAIHead();
+
+document.addEventListener("DOMContentLoaded", function(){
+  const sel = document.getElementById("siteLang");
+  const initialLang = sel ? sel.value : (currentLang || "ja");
+  changeLang(initialLang || "ja");
+});
+
 </script>
 </body>
 </html>
