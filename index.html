@@ -936,5 +936,140 @@ document.addEventListener("DOMContentLoaded",function(){
 })();
 </script>
 
+
+<script>
+(function(){
+const SAKURA_AI_SAFE = {
+  ja:{
+    head:"Sakura Recovery AI — お客様サポート",
+    welcome:"Sakura Recovery Serviceへようこそ。車両確認・修理・回収・港搬送についてサポートいたします。車両の現在地を入力すると、スタッフが点検料金とお支払い方法をご案内します。",
+    select:"ご希望の内容を選んでください。",
+    check:"車両確認ですね。フォームに車両の現在地を入力してください。",
+    notmove:"車が動かない場合は、現在地・車両名・症状をフォームへ入力してください。",
+    repair:"修理相談は、車両名・年式・症状を入力してください。",
+    port:"港搬送は、現在地と搬送先の港名を入力してください。"
+  },
+  en:{
+    head:"Sakura Recovery AI — Customer Support",
+    welcome:"Welcome to Sakura Recovery Service. I can help with vehicle inspection, repair, recovery, and port delivery. Please enter the vehicle current location so staff can confirm the inspection fee and payment details.",
+    select:"Please choose what you need.",
+    check:"Vehicle inspection request noted. Please enter the vehicle current location in the form.",
+    notmove:"If the vehicle cannot move, enter location, vehicle name and problem details in the form.",
+    repair:"For repair, enter vehicle name, year and symptoms.",
+    port:"For port delivery, enter current location and destination port."
+  },
+  ur:{
+    head:"Sakura Recovery AI — Customer Support",
+    welcome:"Sakura Recovery Service me welcome. Main vehicle inspection, repair, recovery aur port delivery me help kar sakta hoon. Vehicle current location form me fill karein, staff inspection fee aur payment details confirm karega.",
+    select:"Kiya service chahiye?",
+    check:"Vehicle check request ok. Form me Vehicle Current Location fill karein.",
+    notmove:"Agar vehicle move nahi ho rahi, location, vehicle name aur problem form me fill karein.",
+    repair:"Repair ke liye vehicle name, year aur symptoms likhein.",
+    port:"Port delivery ke liye current location aur destination port likhein."
+  },
+  ru:{
+    head:"Sakura Recovery AI — Поддержка клиентов",
+    welcome:"Добро пожаловать в Sakura Recovery Service. Я помогу с осмотром, ремонтом, эвакуацией и доставкой автомобиля в порт. Укажите текущее местоположение автомобиля, и сотрудники подтвердят стоимость осмотра и детали оплаты.",
+    select:"Пожалуйста, выберите нужную услугу.",
+    check:"Заявка на осмотр автомобиля принята. Укажите текущее местоположение автомобиля в форме.",
+    notmove:"Если автомобиль не движется, укажите местоположение, название автомобиля и проблему.",
+    repair:"Для ремонта укажите название автомобиля, год и симптомы.",
+    port:"Для доставки в порт укажите текущее местоположение и порт назначения."
+  },
+  zh:{
+    head:"Sakura Recovery AI — 客户支持",
+    welcome:"欢迎使用 Sakura Recovery Service。我可以帮助车辆检查、维修、救援和港口运输。请填写车辆当前位置，工作人员会确认检查费用和付款详情。",
+    select:"请选择需要的服务。",
+    check:"车辆检查申请已收到。请在表格中填写车辆当前位置。",
+    notmove:"如果车辆无法移动，请填写位置、车辆名称和问题。",
+    repair:"维修请填写车辆名称、年份和症状。",
+    port:"港口运输请填写当前位置和目的港。"
+  },
+  es:{
+    head:"Sakura Recovery AI — Atención al cliente",
+    welcome:"Bienvenido a Sakura Recovery Service. Puedo ayudar con inspección, reparación, recuperación y entrega al puerto. Ingrese la ubicación actual del vehículo para confirmar la tarifa y el pago.",
+    select:"Elija el servicio que necesita.",
+    check:"Solicitud de inspección recibida. Ingrese la ubicación actual del vehículo en el formulario.",
+    notmove:"Si el vehículo no se mueve, ingrese ubicación, vehículo y problema.",
+    repair:"Para reparación, ingrese vehículo, año y síntomas.",
+    port:"Para puerto, ingrese ubicación actual y puerto de destino."
+  }
+};
+SAKURA_AI_SAFE.vi = SAKURA_AI_SAFE.en;
+SAKURA_AI_SAFE.ko = SAKURA_AI_SAFE.en;
+SAKURA_AI_SAFE.ar = SAKURA_AI_SAFE.en;
+SAKURA_AI_SAFE.bn = SAKURA_AI_SAFE.ur;
+SAKURA_AI_SAFE.fa = SAKURA_AI_SAFE.en;
+SAKURA_AI_SAFE.tr = SAKURA_AI_SAFE.en;
+SAKURA_AI_SAFE.si = SAKURA_AI_SAFE.ur;
+
+function getSafeAILang(){
+  const sel=document.getElementById("siteLang");
+  return sel ? sel.value : "en";
+}
+function applySafeAIHeader(){
+  const lang=getSafeAILang();
+  const pack=SAKURA_AI_SAFE[lang] || SAKURA_AI_SAFE.en;
+  const head=document.getElementById("aiHead");
+  if(head) head.innerHTML = pack.head;
+}
+window.safeAIMessagePack = function(){
+  const lang=getSafeAILang();
+  return SAKURA_AI_SAFE[lang] || SAKURA_AI_SAFE.en;
+};
+
+const oldUpdateAIHead = window.updateAIHead;
+window.updateAIHead = function(){
+  try{
+    if(typeof oldUpdateAIHead === "function") oldUpdateAIHead();
+  }catch(e){}
+  applySafeAIHeader();
+};
+
+const oldStartAI = window.startAI;
+window.startAI = function(){
+  const body=document.getElementById("aiBody");
+  if(!body) return;
+  if(body.dataset.started==="yes") return;
+  body.dataset.started="yes";
+  const p=window.safeAIMessagePack();
+  if(typeof aiMsg === "function"){
+    aiMsg(p.welcome, "bot", false);
+    aiMsg(
+      '<div class="ai-quick" onclick="quickAI(\\'check\\')">🔍 Vehicle Check / Inspection</div>'+
+      '<div class="ai-quick" onclick="quickAI(\\'notmove\\')">🚗 Vehicle not moving</div>'+
+      '<div class="ai-quick" onclick="quickAI(\\'repair\\')">🔧 Repair</div>'+
+      '<div class="ai-quick" onclick="quickAI(\\'port\\')">🚢 Port Delivery</div>'
+    );
+  }else{
+    body.innerHTML = '<div class="ai-msg ai-bot">'+p.welcome+'</div>';
+  }
+  applySafeAIHeader();
+};
+
+const oldQuickAI = window.quickAI;
+window.quickAI = function(type){
+  const p=window.safeAIMessagePack();
+  const map={check:p.check, notmove:p.notmove, repair:p.repair, port:p.port};
+  if(typeof aiMsg === "function" && map[type]){
+    aiMsg(map[type], "bot", false);
+    return;
+  }
+  if(typeof oldQuickAI === "function") return oldQuickAI(type);
+};
+
+document.addEventListener("DOMContentLoaded",function(){
+  applySafeAIHeader();
+  const sel=document.getElementById("siteLang");
+  if(sel){
+    sel.addEventListener("change",function(){
+      setTimeout(applySafeAIHeader,50);
+      setTimeout(applySafeAIHeader,250);
+    });
+  }
+});
+})();
+</script>
+
 </body>
 </html>
