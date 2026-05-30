@@ -665,7 +665,7 @@ try{ result = await res.json(); }catch(_e){}
 const payLink = result.payment_url || result.payment_link || result.checkout_url || "#";
 const amount = result.amount || result.inspection_fee || data.inspection_fee;
 const payBtn=document.getElementById("mainPaymentBtn");
-if(payBtn){S
+if(payBtn){
   payBtn.href=payLink;
   payBtn.classList.remove("disabled");
   payBtn.innerHTML="💳 PAYMENT — "+yen(amount);
