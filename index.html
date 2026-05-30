@@ -654,14 +654,18 @@ try{
 const res = await fetch(CHECKOUT_WEBHOOK_URL,{
 method:"POST",
 headers:{"Content-Type":"application/json"},
-body:JSON.stringify(data)
+body:JSON.stringify({
+  ...data,
+  distance_km: data.distance_km || document.getElementById("distanceKm")?.value || "",
+  inspection_fee: data.inspection_fee || updateInspectionFee()
+})
 });
 let result={};
 try{ result = await res.json(); }catch(_e){}
-const payLink = result.payment_url || result.payment_link || result.checkout_url || CARD_PAYMENT_URL;
+const payLink = result.payment_url || result.payment_link || result.checkout_url || "#";
 const amount = result.amount || result.inspection_fee || data.inspection_fee;
 const payBtn=document.getElementById("mainPaymentBtn");
-if(payBtn){
+if(payBtn){S
   payBtn.href=payLink;
   payBtn.classList.remove("disabled");
   payBtn.innerHTML="💳 PAYMENT — "+yen(amount);
@@ -679,7 +683,7 @@ document.getElementById("successPopup").style.display="flex";
 
 
 /* Sakura Recovery AI Bot: multi-language, distance estimate, card payment guidance, voice input */
-const CARD_PAYMENT_URL="https://buy.stripe.com/14A9AM4TQfya1ke82t9MY00"; // fallback only
+const CARD_PAYMENT_URL="";
 const CHECKOUT_WEBHOOK_URL="https://n8n.sakurajapanbot.tech/webhook/sakura-recovery-estimate";
 const COMPANY_ADDRESS="〒901-2416 沖縄県中頭郡中城村和宇慶620-1 Sakura Recovery Repair Service";
 const BASE_KM=3;
